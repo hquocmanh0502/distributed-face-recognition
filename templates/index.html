@@ -1,0 +1,970 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎭 Hệ Thống Nhận Diện Khuôn Mặt Phân Tán</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            max-width: 900px;
+            width: 90%;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            color: #333;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .header p {
+            color: #666;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        .demo-info {
+            background: linear-gradient(135deg, #17a2b8 0%, #138496 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .demo-info h3 {
+            margin-bottom: 10px;
+        }
+
+        .demo-info p {
+            margin-bottom: 15px;
+            opacity: 0.9;
+        }
+
+        .quick-demo {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .demo-btn {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            padding: 8px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .demo-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+            border-color: rgba(255, 255, 255, 0.5);
+        }
+
+        .upload-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .upload-area {
+            border: 3px dashed #667eea;
+            border-radius: 15px;
+            padding: 40px 20px;
+            text-align: center;
+            background: rgba(102, 126, 234, 0.05);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .upload-area:hover {
+            border-color: #764ba2;
+            background: rgba(118, 75, 162, 0.05);
+            transform: translateY(-2px);
+        }
+
+        .upload-area.dragover {
+            border-color: #28a745;
+            background: rgba(40, 167, 69, 0.1);
+        }
+
+        .upload-icon {
+            font-size: 3rem;
+            color: #667eea;
+            margin-bottom: 15px;
+        }
+
+        .upload-text {
+            font-size: 1.2rem;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .upload-subtext {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        #file-input {
+            display: none;
+        }
+
+        .file-preview {
+            max-height: 400px;
+            overflow-y: auto;
+            border: 2px solid #e9ecef;
+            border-radius: 15px;
+            padding: 20px;
+            background: #f8f9fa;
+        }
+
+        .file-preview h4 {
+            color: #333;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .file-item {
+            display: flex;
+            align-items: center;
+            padding: 12px;
+            background: white;
+            margin-bottom: 8px;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s ease;
+        }
+
+        .file-item:hover {
+            transform: translateX(5px);
+        }
+
+        .file-preview-img {
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-right: 15px;
+        }
+
+        .file-info {
+            flex-grow: 1;
+        }
+
+        .file-name {
+            color: #333;
+            font-weight: 500;
+            margin-bottom: 3px;
+        }
+
+        .file-meta {
+            color: #666;
+            font-size: 0.85rem;
+        }
+
+        .file-remove {
+            color: #dc3545;
+            cursor: pointer;
+            padding: 5px;
+            border-radius: 50%;
+            transition: background 0.3s ease;
+        }
+
+        .file-remove:hover {
+            background: rgba(220, 53, 69, 0.1);
+        }
+
+        .btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 25px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+            margin-top: 20px;
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        .btn:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .processing-section {
+            display: none;
+            margin-top: 30px;
+        }
+
+        .worker-simulation {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 20px;
+        }
+
+        .worker-simulation h4 {
+            color: #333;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .workers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+        }
+
+        .worker-card {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            border-left: 4px solid #28a745;
+        }
+
+        .worker-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .worker-icon {
+            color: #28a745;
+            margin-right: 10px;
+        }
+
+        .worker-status {
+            font-size: 0.85rem;
+            color: #666;
+            margin-left: auto;
+        }
+
+        .worker-queue {
+            max-height: 150px;
+            overflow-y: auto;
+        }
+
+        .queue-item {
+            background: #f8f9fa;
+            padding: 8px 12px;
+            border-radius: 8px;
+            margin-bottom: 5px;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .queue-item.processing {
+            background: linear-gradient(90deg, #fff3cd 0%, #ffeaa7 100%);
+            border-left: 3px solid #ffc107;
+        }
+
+        .queue-item.completed {
+            background: linear-gradient(90deg, #d4edda 0%, #00b894 100%);
+            border-left: 3px solid #28a745;
+        }
+
+        .queue-item.failed {
+            background: linear-gradient(90deg, #f8d7da 0%, #e17055 100%);
+            border-left: 3px solid #dc3545;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: #e9ecef;
+            border-radius: 4px;
+            overflow: hidden;
+            margin: 5px 0;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .feature {
+            text-align: center;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 15px;
+            border: 1px solid rgba(102, 126, 234, 0.2);
+        }
+
+        .feature-icon {
+            font-size: 2rem;
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+
+        .feature-title {
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .feature-desc {
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .stats-display {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .stat-box {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .stat-number {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #667eea;
+        }
+
+        .stat-label {
+            font-size: 0.8rem;
+            color: #666;
+            margin-top: 5px;
+        }
+
+        @media (max-width: 768px) {
+            .upload-section {
+                grid-template-columns: 1fr;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .workers-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1><i class="fas fa-robot"></i> Face Recognition System</h1>
+            <p>Hệ thống nhận diện khuôn mặt phân tán với công nghệ Celery và Redis</p>
+        </div>
+
+        <!-- Demo Info -->
+        <div class="demo-info">
+            <h3><i class="fas fa-rocket"></i> Demo Xử Lý Phân Tán</h3>
+            <p>Upload nhiều ảnh cùng lúc để xem <span id="worker-count-display">workers</span> xử lý song song!</p>
+            <div class="quick-demo">
+                <button class="demo-btn" onclick="simulateMultipleFiles(5)">
+                    <i class="fas fa-images"></i> Demo 5 ảnh
+                </button>
+                <button class="demo-btn" onclick="simulateMultipleFiles(10)">
+                    <i class="fas fa-layer-group"></i> Demo 10 ảnh
+                </button>
+                <button class="demo-btn" onclick="simulateMultipleFiles(20)">
+                    <i class="fas fa-fire"></i> Demo 20 ảnh
+                </button>
+                <button class="demo-btn" onclick="clearFiles()">
+                    <i class="fas fa-trash"></i> Xóa tất cả
+                </button>
+            </div>
+        </div>
+
+        <form id="upload-form" method="POST" enctype="multipart/form-data">
+            <div class="upload-section">
+                <!-- Upload Area -->
+                <div class="upload-area" id="upload-area">
+                    <div class="upload-icon">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                    </div>
+                    <div class="upload-text">Kéo thả ảnh vào đây</div>
+                    <div class="upload-subtext">hoặc click để chọn nhiều file (JPG, PNG, GIF)</div>
+                    <input type="file" id="file-input" name="images" multiple accept="image/*">
+                </div>
+
+                <!-- File Preview -->
+                <div class="file-preview">
+                    <h4>
+                        <i class="fas fa-list"></i> 
+                        Files đã chọn (<span id="file-count">0</span>)
+                    </h4>
+                    <div id="file-list"></div>
+                </div>
+            </div>
+
+            <!-- Stats Display -->
+            <div class="stats-display" id="stats-display" style="display: none;">
+                <div class="stat-box">
+                    <div class="stat-number" id="stat-files">0</div>
+                    <div class="stat-label">Files</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number" id="stat-size">0 MB</div>
+                    <div class="stat-label">Tổng dung lượng</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number" id="stat-workers">3</div>
+                    <div class="stat-label">Workers</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number" id="stat-estimated">~0s</div>
+                    <div class="stat-label">Thời gian ước tính</div>
+                </div>
+            </div>
+
+            <button type="submit" class="btn" id="submit-btn" disabled>
+                <i class="fas fa-magic"></i> <span id="btn-text">Chọn ảnh để bắt đầu</span>
+            </button>
+        </form>
+
+        <!-- Processing Section -->
+        <div class="processing-section" id="processing-section">
+            <div class="worker-simulation">
+                <h4><i class="fas fa-server"></i> Workers đang xử lý (Demo phân tán)</h4>
+                <div class="workers-grid" id="workers-grid">
+                    <!-- Workers will be dynamically added here -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Features -->
+        <div class="features">
+            <div class="feature">
+                <div class="feature-icon"><i class="fas fa-bolt"></i></div>
+                <div class="feature-title">Xử lý song song</div>
+                <div class="feature-desc">Multiple Celery Workers</div>
+            </div>
+            <div class="feature">
+                <div class="feature-icon"><i class="fas fa-eye"></i></div>
+                <div class="feature-title">Phát hiện chính xác</div>
+                <div class="feature-desc">OpenCV + Face Recognition</div>
+            </div>
+            <div class="feature">
+                <div class="feature-icon"><i class="fas fa-users"></i></div>
+                <div class="feature-title">Nhận diện người</div>
+                <div class="feature-desc"><a href="/known-faces" style="color: #667eea;">Quản lý Known Faces</a></div>
+            </div>
+            <div class="feature">
+                <div class="feature-icon"><i class="fas fa-database"></i></div>
+                <div class="feature-title">Lưu trữ Redis</div>
+                <div class="feature-desc">Task Queue nhanh</div>
+            </div>
+            <div class="feature">
+                <div class="feature-icon"><i class="fas fa-chart-line"></i></div>
+                <div class="feature-title">Theo dõi thời gian thực</div>
+                <div class="feature-desc"><a href="/dashboard" style="color: #667eea;">Xem Dashboard</a></div>
+            </div>
+            <div class="feature">
+                <div class="feature-icon"><i class="fas fa-images"></i></div>
+                <div class="feature-title">Xem kết quả</div>
+                <div class="feature-desc"><a href="/results" style="color: #667eea;">Gallery kết quả</a></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const uploadArea = document.getElementById('upload-area');
+        const fileInput = document.getElementById('file-input');
+        const fileList = document.getElementById('file-list');
+        const fileCount = document.getElementById('file-count');
+        const submitBtn = document.getElementById('submit-btn');
+        const btnText = document.getElementById('btn-text');
+        const uploadForm = document.getElementById('upload-form');
+        const processingSection = document.getElementById('processing-section');
+        const workersGrid = document.getElementById('workers-grid');
+        const statsDisplay = document.getElementById('stats-display');
+
+        let selectedFiles = [];
+        let taskIds = [];
+        let workers = [];
+
+        // Click to select files
+        uploadArea.addEventListener('click', () => {
+            fileInput.click();
+        });
+
+        // Drag and drop functionality
+        uploadArea.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            uploadArea.classList.add('dragover');
+        });
+
+        uploadArea.addEventListener('dragleave', () => {
+            uploadArea.classList.remove('dragover');
+        });
+
+        uploadArea.addEventListener('drop', (e) => {
+            e.preventDefault();
+            uploadArea.classList.remove('dragover');
+            const files = Array.from(e.dataTransfer.files);
+            handleFiles(files);
+        });
+
+        // File input change
+        fileInput.addEventListener('change', (e) => {
+            const files = Array.from(e.target.files);
+            handleFiles(files);
+        });
+
+        function handleFiles(files) {
+            const imageFiles = files.filter(file => file.type.startsWith('image/'));
+            selectedFiles = [...selectedFiles, ...imageFiles]; // Append instead of replace
+            displayFiles();
+            updateStats();
+            updateButton();
+        }
+
+        function displayFiles() {
+            fileList.innerHTML = '';
+            selectedFiles.forEach((file, index) => {
+                const fileItem = document.createElement('div');
+                fileItem.className = 'file-item';
+                
+                // Create preview image
+                const img = document.createElement('img');
+                img.className = 'file-preview-img';
+                img.src = URL.createObjectURL(file);
+                
+                fileItem.innerHTML = `
+                    <div class="file-info">
+                        <div class="file-name">${file.name}</div>
+                        <div class="file-meta">${formatFileSize(file.size)} • ${file.type.split('/')[1].toUpperCase()}</div>
+                    </div>
+                    <div class="file-remove" onclick="removeFile(${index})">
+                        <i class="fas fa-times"></i>
+                    </div>
+                `;
+                
+                fileItem.insertBefore(img, fileItem.firstChild);
+                fileList.appendChild(fileItem);
+            });
+            
+            fileCount.textContent = selectedFiles.length;
+        }
+
+        function removeFile(index) {
+            selectedFiles.splice(index, 1);
+            displayFiles();
+            updateStats();
+            updateButton();
+        }
+
+        function clearFiles() {
+            selectedFiles = [];
+            displayFiles();
+            updateStats();
+            updateButton();
+        }
+
+        function updateStats() {
+            const totalSize = selectedFiles.reduce((sum, file) => sum + file.size, 0);
+            
+            if (selectedFiles.length > 0) {
+                statsDisplay.style.display = 'grid';
+                document.getElementById('stat-files').textContent = selectedFiles.length;
+                document.getElementById('stat-size').textContent = formatFileSize(totalSize);
+                
+                // Fetch real worker count and estimate time
+                fetch('/api/worker-info')
+                    .then(response => response.json())
+                    .then(data => {
+                        const workerCount = Math.max(data.total_workers, 1);
+                        const estimatedTime = Math.ceil(selectedFiles.length / workerCount) * 3; // 3 seconds per image per worker
+                        
+                        document.getElementById('stat-workers').textContent = workerCount;
+                        document.getElementById('stat-estimated').textContent = `~${estimatedTime}s`;
+                    })
+                    .catch(() => {
+                        // Fallback
+                        document.getElementById('stat-workers').textContent = '?';
+                        document.getElementById('stat-estimated').textContent = `~${selectedFiles.length * 3}s`;
+                    });
+            } else {
+                statsDisplay.style.display = 'none';
+            }
+        }
+
+        function updateButton() {
+            if (selectedFiles.length === 0) {
+                submitBtn.disabled = true;
+                btnText.innerHTML = '<i class="fas fa-images"></i> Chọn ảnh để bắt đầu';
+            } else {
+                submitBtn.disabled = false;
+                btnText.innerHTML = `<i class="fas fa-magic"></i> Xử lý ${selectedFiles.length} ảnh với Workers`;
+            }
+        }
+
+        function simulateMultipleFiles(count) {
+            // Create dummy files for demo
+            const dummyFiles = [];
+            for (let i = 1; i <= count; i++) {
+                // Create a small canvas as dummy image
+                const canvas = document.createElement('canvas');
+                canvas.width = 200;
+                canvas.height = 200;
+                const ctx = canvas.getContext('2d');
+                
+                // Random gradient background
+                const gradient = ctx.createLinearGradient(0, 0, 200, 200);
+                gradient.addColorStop(0, `hsl(${Math.random() * 360}, 70%, 60%)`);
+                gradient.addColorStop(1, `hsl(${Math.random() * 360}, 70%, 40%)`);
+                ctx.fillStyle = gradient;
+                ctx.fillRect(0, 0, 200, 200);
+                
+                // Add text
+                ctx.fillStyle = 'white';
+                ctx.font = '20px Arial';
+                ctx.textAlign = 'center';
+                ctx.fillText(`Demo ${i}`, 100, 100);
+                
+                canvas.toBlob((blob) => {
+                    const file = new File([blob], `demo_image_${i}.jpg`, { type: 'image/jpeg' });
+                    dummyFiles.push(file);
+                    
+                    if (dummyFiles.length === count) {
+                        selectedFiles = [...selectedFiles, ...dummyFiles];
+                        displayFiles();
+                        updateStats();
+                        updateButton();
+                    }
+                }, 'image/jpeg');
+            }
+        }
+
+        function createWorkers(count = 3) {
+            workers = [];
+            workersGrid.innerHTML = '';
+            
+            // Fetch real worker info from API
+            fetch('/api/worker-info')
+                .then(response => response.json())
+                .then(data => {
+                    const realWorkers = data.workers || [];
+                    const workerCount = Math.max(realWorkers.length, count);
+                    
+                    // Update worker count display
+                    document.getElementById('stat-workers').textContent = workerCount;
+                    
+                    for (let i = 0; i < workerCount; i++) {
+                        const realWorker = realWorkers[i];
+                        const workerName = realWorker ? realWorker.short_name : `Worker ${i + 1}`;
+                        const workerStatus = realWorker ? (realWorker.status === 'idle' ? 'Idle' : `Busy (${realWorker.active_tasks})`) : 'Connecting...';
+                        
+                        const workerCard = document.createElement('div');
+                        workerCard.className = 'worker-card';
+                        workerCard.innerHTML = `
+                            <div class="worker-header">
+                                <i class="fas fa-server worker-icon"></i>
+                                <strong>${workerName}</strong>
+                                <span class="worker-status" id="worker-${i + 1}-status">${workerStatus}</span>
+                            </div>
+                            <div class="worker-queue" id="worker-${i + 1}-queue">
+                                ${realWorker && realWorker.tasks.length > 0 
+                                    ? realWorker.tasks.map(task => `
+                                        <div class="queue-item processing">
+                                            <i class="fas fa-cog fa-spin"></i>
+                                            ${task.filename}
+                                        </div>
+                                    `).join('')
+                                    : '<div style="color: #666; font-style: italic; text-align: center; padding: 20px;">Chờ tasks...</div>'
+                                }
+                            </div>
+                        `;
+                        workersGrid.appendChild(workerCard);
+                        
+                        workers.push({
+                            id: i + 1,
+                            name: workerName,
+                            status: realWorker ? realWorker.status : 'idle',
+                            queue: [],
+                            element: workerCard,
+                            realWorker: realWorker
+                        });
+                    }
+                })
+                .catch(error => {
+                    console.error('Error fetching worker info:', error);
+                    // Fallback to default workers
+                    createDefaultWorkers(count);
+                });
+        }
+
+        function createDefaultWorkers(count) {
+            for (let i = 1; i <= count; i++) {
+                const workerCard = document.createElement('div');
+                workerCard.className = 'worker-card';
+                workerCard.innerHTML = `
+                    <div class="worker-header">
+                        <i class="fas fa-server worker-icon"></i>
+                        <strong>Worker ${i}</strong>
+                        <span class="worker-status" id="worker-${i}-status">Idle</span>
+                    </div>
+                    <div class="worker-queue" id="worker-${i}-queue">
+                        <div style="color: #666; font-style: italic; text-align: center; padding: 20px;">
+                            Chờ tasks...
+                        </div>
+                    </div>
+                `;
+                workersGrid.appendChild(workerCard);
+                
+                workers.push({
+                    id: i,
+                    status: 'idle',
+                    queue: [],
+                    element: workerCard
+                });
+            }
+        }
+
+        function assignTaskToWorker(taskId, filename) {
+            // Find least busy worker
+            const workerIndex = workers.reduce((minIndex, worker, index) => {
+                return workers[index].queue.length < workers[minIndex].queue.length ? index : minIndex;
+            }, 0);
+            
+            const worker = workers[workerIndex];
+            worker.queue.push({ taskId, filename, status: 'pending' });
+            
+            updateWorkerDisplay(worker);
+            
+            // Simulate processing
+            setTimeout(() => {
+                processNextTask(worker);
+            }, Math.random() * 2000 + 1000);
+        }
+
+        function updateWorkerDisplay(worker) {
+            const statusElement = document.getElementById(`worker-${worker.id}-status`);
+            const queueElement = document.getElementById(`worker-${worker.id}-queue`);
+            
+            statusElement.textContent = worker.queue.length > 0 ? `Processing (${worker.queue.length})` : 'Idle';
+            
+            if (worker.queue.length === 0) {
+                queueElement.innerHTML = '<div style="color: #666; font-style: italic; text-align: center; padding: 20px;">Chờ tasks...</div>';
+            } else {
+                queueElement.innerHTML = worker.queue.map((task, index) => `
+                    <div class="queue-item ${task.status}">
+                        <i class="fas fa-${task.status === 'processing' ? 'cog fa-spin' : task.status === 'completed' ? 'check' : task.status === 'failed' ? 'times' : 'clock'}"></i>
+                        ${task.filename}
+                        ${task.status === 'processing' ? '<div class="progress-bar"><div class="progress-fill" style="width: 60%;"></div></div>' : ''}
+                    </div>
+                `).join('');
+            }
+        }
+
+        function processNextTask(worker) {
+            if (worker.queue.length === 0) return;
+            
+            const task = worker.queue[0];
+            task.status = 'processing';
+            updateWorkerDisplay(worker);
+            
+            // Simulate processing time
+            const processingTime = Math.random() * 5000 + 3000; // 3-8 seconds
+            
+            setTimeout(() => {
+                // Random success/failure (90% success rate)
+                task.status = Math.random() > 0.1 ? 'completed' : 'failed';
+                updateWorkerDisplay(worker);
+                
+                // Remove completed task and process next
+                setTimeout(() => {
+                    worker.queue.shift();
+                    updateWorkerDisplay(worker);
+                    processNextTask(worker);
+                }, 1000);
+            }, processingTime);
+        }
+
+        function formatFileSize(bytes) {
+            if (bytes === 0) return '0 B';
+            const k = 1024;
+            const sizes = ['B', 'KB', 'MB', 'GB'];
+            const i = Math.floor(Math.log(bytes) / Math.log(k));
+            return parseFloat((bytes / Math.pow(k, i)).toFixed(1)) + ' ' + sizes[i];
+        }
+
+        // Form submission
+        uploadForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            if (selectedFiles.length === 0) return;
+
+            // Show processing section
+            processingSection.style.display = 'block';
+            
+            // Get real worker count first
+            try {
+                const workerResponse = await fetch('/api/worker-info');
+                const workerData = await workerResponse.json();
+                const realWorkerCount = Math.max(workerData.total_workers, 1);
+                
+                createWorkers(realWorkerCount);
+                
+                // Update button
+                submitBtn.disabled = true;
+                btnText.innerHTML = `<i class="fas fa-cog fa-spin"></i> Đang phân phối ${selectedFiles.length} tasks cho ${realWorkerCount} workers...`;
+                
+            } catch (error) {
+                // Fallback to default
+                createWorkers(3);
+                submitBtn.disabled = true;
+                btnText.innerHTML = '<i class="fas fa-cog fa-spin"></i> Đang xử lý...';
+            }
+
+            try {
+                const formData = new FormData();
+                selectedFiles.forEach(file => {
+                    formData.append('images', file);
+                });
+
+                const response = await fetch('/', {
+                    method: 'POST',
+                    body: formData
+                });
+
+                if (response.ok) {
+                    const resultHtml = await response.text();
+                    
+                    // Extract task IDs from response (if available)
+                    // For demo, simulate task distribution
+                    selectedFiles.forEach((file, index) => {
+                        setTimeout(() => {
+                            assignTaskToWorker(`task-${Date.now()}-${index}`, file.name);
+                        }, index * 200); // Faster distribution
+                    });
+                    
+                    // Redirect to results after processing
+                    setTimeout(() => {
+                        window.location.href = '/results';
+                    }, Math.max(selectedFiles.length * 600, 8000)); // Adjust based on worker count
+                    
+                } else {
+                    throw new Error('Upload failed');
+                }
+
+            } catch (error) {
+                alert('❌ Lỗi: ' + error.message);
+                submitBtn.disabled = false;
+                btnText.innerHTML = '<i class="fas fa-magic"></i> Thử lại';
+            }
+        });
+
+        // Initialize
+        updateButton();
+        
+        // Initial worker count fetch
+        fetch('/api/worker-info')
+            .then(response => response.json())
+            .then(data => {
+                const workerCountDisplay = document.getElementById('worker-count-display');
+                if (workerCountDisplay) {
+                    workerCountDisplay.textContent = `${data.total_workers} workers`;
+                    workerCountDisplay.style.fontWeight = 'bold';
+                    workerCountDisplay.style.color = '#fff';
+                    workerCountDisplay.style.background = 'rgba(255,255,255,0.2)';
+                    workerCountDisplay.style.padding = '2px 8px';
+                    workerCountDisplay.style.borderRadius = '12px';
+                }
+            })
+            .catch(() => {
+                console.log('Could not fetch initial worker count');
+            });
+        
+        // Monitor workers every 10 seconds
+        setInterval(async () => {
+            try {
+                const response = await fetch('/api/worker-info');
+                const data = await response.json();
+                
+                // Update worker count display in header
+                const workerCountDisplay = document.getElementById('worker-count-display');
+                if (workerCountDisplay) {
+                    workerCountDisplay.textContent = `${data.total_workers} workers`;
+                }
+                
+                // Update worker count in stats
+                const workerCountElement = document.getElementById('stat-workers');
+                if (workerCountElement) {
+                    workerCountElement.textContent = data.total_workers;
+                }
+                
+                // Update worker status if workers are displayed
+                if (workers.length > 0) {
+                    data.workers.forEach((realWorker, index) => {
+                        if (index < workers.length) {
+                            const statusElement = document.getElementById(`worker-${index + 1}-status`);
+                            if (statusElement) {
+                                const status = realWorker.status === 'idle' ? 'Idle' : `Busy (${realWorker.active_tasks})`;
+                                statusElement.textContent = status;
+                                statusElement.style.color = realWorker.status === 'busy' ? '#ffc107' : '#28a745';
+                            }
+                        }
+                    });
+                }
+            } catch (error) {
+                console.log('Worker monitoring error:', error);
+            }
+        }, 10000); // Every 10 seconds
+    </script>
+</body>
+</html>

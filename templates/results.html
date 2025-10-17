@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📊 Kết Quả Nhận Diện</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            margin-bottom: 30px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .header h1 {
+            color: #333;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            color: #666;
+            font-size: 1.1rem;
+        }
+
+        .controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 20px 0;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .search-box {
+            flex: 1;
+            min-width: 200px;
+            position: relative;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 12px 20px 12px 45px;
+            border: 2px solid #e0e0e0;
+            border-radius: 25px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+            background: rgba(255, 255, 255, 0.9);
+        }
+
+        .search-box input:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .search-box i {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #666;
+        }
+
+        .filter-buttons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .filter-btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            color: #333;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 14px;
+        }
+
+        .filter-btn.active,
+        .filter-btn:hover {
+            background: #667eea;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .clear-btn {
+            background: linear-gradient(135deg, #dc3545 0%, #c82333 100%);
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            font-size: 14px;
+        }
+
+        .clear-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .nav-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            padding: 12px 25px;
+            border-radius: 25px;
+            transition: transform 0.3s ease;
+            font-size: 14px;
+        }
+
+        .nav-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .stats-bar {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 15px 25px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .stat-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #333;
+            font-weight: 500;
+        }
+
+        .stat-icon {
+            color: #667eea;
+        }
+
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .result-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            position: relative;
+        }
+
+        .result-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .result-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-bottom: 3px solid #667eea;
+            cursor: pointer;
+        }
+
+        .result-info {
+            padding: 20px;
+        }
+
+        .result-title {
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        .result-meta {
+            display: flex;
+            justify-content: space-between;
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+
+        .result-actions {
+            display: flex;
+            gap: 10px;
+            justify-content: space-between;
+        }
+
+        .action-btn {
+            padding: 8px 15px;
+            border: none;
+            border-radius: 15px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            transition: transform 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+            flex: 1;
+        }
+
+        .download-btn {
+            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+            color: white;
+        }
+
+        .view-btn {
+            background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+            color: white;
+        }
+
+        .delete-btn {
+            background: linear-gradient(135deg, #dc3545 0%, #c82333 100%);
+            color: white;
+        }
+
+        .action-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .empty-state {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 60px 30px;
+            color: #666;
+        }
+
+        .empty-icon {
+            font-size: 4rem;
+            color: #ddd;
+            margin-bottom: 20px;
+        }
+
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        .modal-content {
+            background: white;
+            margin: 5% auto;
+            padding: 20px;
+            border-radius: 15px;
+            width: 90%;
+            max-width: 800px;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+        }
+
+        .close {
+            color: #aaa;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close:hover {
+            color: #333;
+        }
+
+        .modal-image {
+            width: 100%;
+            max-height: 400px;
+            object-fit: contain;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+
+        @media (max-width: 768px) {
+            .results-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .controls {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .filter-buttons {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .stats-bar {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+        }
+
+        .loading {
+            display: none;
+            text-align: center;
+            padding: 20px;
+            color: white;
+        }
+
+        .spinner {
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top: 4px solid white;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 10px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1><i class="fas fa-chart-line"></i> Kết Quả Nhận Diện</h1>
+            <p>Danh sách các ảnh đã được xử lý nhận diện khuôn mặt</p>
+            <div class="nav-links">
+                <a href="/" class="nav-btn"><i class="fas fa-home"></i> Trang chủ</a>
+                <a href="/known-faces" class="nav-btn"><i class="fas fa-users"></i> Known Faces</a>
+                <a href="/dashboard" class="nav-btn"><i class="fas fa-chart-bar"></i> Dashboard</a>
+            </div>
+        </div>
+
+        <!-- Controls -->
+        <div class="controls">
+            <div class="search-box">
+                <i class="fas fa-search"></i>
+                <input type="text" id="search-input" placeholder="Tìm kiếm theo tên file...">
+            </div>
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all">Tất cả</button>
+                <button class="filter-btn" data-filter="recent">Gần đây</button>
+                <button class="filter-btn" data-filter="large">Lớn</button>
+            </div>
+            <button class="clear-btn" onclick="clearAllResults()">
+                <i class="fas fa-trash"></i> Xóa tất cả
+            </button>
+        </div>
+
+        <!-- Stats Bar -->
+        {% if results %}
+        <div class="stats-bar">
+            <div class="stat-item">
+                <i class="fas fa-images stat-icon"></i>
+                <span>{{ results|length }} ảnh</span>
+            </div>
+            <div class="stat-item">
+                <i class="fas fa-hdd stat-icon"></i>
+                <span id="total-size">{{ "%.1f"|format((results|sum(attribute='size'))/1024/1024) }} MB</span>
+            </div>
+            <div class="stat-item">
+                <i class="fas fa-clock stat-icon"></i>
+                <span>Cập nhật: {{ results[0].modified|timestamp_to_datetime if results else 'N/A' }}</span>
+            </div>
+        </div>
+        {% endif %}
+
+        <!-- Loading -->
+        <div class="loading" id="loading">
+            <div class="spinner"></div>
+            <p>Đang tải...</p>
+        </div>
+
+        <!-- Results Grid -->
+        {% if results %}
+        <div class="results-grid" id="results-grid">
+            {% for result in results %}
+            <div class="result-card" data-filename="{{ result.filename }}" data-size="{{ result.size }}" data-date="{{ result.modified }}">
+                <img src="/results/{{ result.filename }}" alt="{{ result.filename }}" class="result-image" onclick="openModal('{{ result.filename }}')">
+                <div class="result-info">
+                    <div class="result-title">{{ result.filename }}</div>
+                    <div class="result-meta">
+                        <span><i class="fas fa-file-image"></i> {{ "%.1f"|format(result.size/1024) }} KB</span>
+                        <span><i class="fas fa-clock"></i> {{ result.modified|timestamp_to_datetime }}</span>
+                    </div>
+                    <div class="result-actions">
+                        <a href="/results/{{ result.filename }}" download class="action-btn download-btn">
+                            <i class="fas fa-download"></i> Tải
+                        </a>
+                        <button class="action-btn view-btn" onclick="openModal('{{ result.filename }}')">
+                            <i class="fas fa-eye"></i> Xem
+                        </button>
+                        <button class="action-btn delete-btn" onclick="deleteFile('{{ result.filename }}')">
+                            <i class="fas fa-trash"></i> Xóa
+                        </button>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        {% else %}
+        <div class="empty-state">
+            <div class="empty-icon">
+                <i class="fas fa-images"></i>
+            </div>
+            <h3>Chưa có kết quả nào</h3>
+            <p>Hãy upload và xử lý một số ảnh để xem kết quả tại đây.</p>
+            <a href="/" class="nav-btn" style="margin-top: 20px;">
+                <i class="fas fa-upload"></i> Upload ảnh ngay
+            </a>
+        </div>
+        {% endif %}
+    </div>
+
+    <!-- Modal -->
+    <div id="imageModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modal-title">Chi tiết ảnh</h3>
+                <span class="close" onclick="closeModal()">&times;</span>
+            </div>
+            <img id="modal-image" class="modal-image" src="" alt="">
+            <div id="modal-info">
+                <p><strong>Tên file:</strong> <span id="modal-filename"></span></p>
+                <p><strong>Kích thước:</strong> <span id="modal-size"></span></p>
+                <p><strong>Ngày tạo:</strong> <span id="modal-date"></span></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Search functionality
+        document.getElementById('search-input').addEventListener('input', function(e) {
+            const searchTerm = e.target.value.toLowerCase();
+            const cards = document.querySelectorAll('.result-card');
+            
+            cards.forEach(card => {
+                const filename = card.dataset.filename.toLowerCase();
+                if (filename.includes(searchTerm)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+
+        // Filter functionality
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                // Remove active class from all buttons
+                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                // Add active class to clicked button
+                this.classList.add('active');
+                
+                const filter = this.dataset.filter;
+                const cards = document.querySelectorAll('.result-card');
+                
+                cards.forEach(card => {
+                    const size = parseInt(card.dataset.size);
+                    const date = parseInt(card.dataset.date);
+                    const now = Date.now() / 1000;
+                    
+                    let show = true;
+                    
+                    if (filter === 'recent') {
+                        show = (now - date) < 86400; // Last 24 hours
+                    } else if (filter === 'large') {
+                        show = size > 1024 * 1024; // > 1MB
+                    }
+                    
+                    card.style.display = show ? 'block' : 'none';
+                });
+            });
+        });
+
+        // Modal functions
+        function openModal(filename) {
+            const modal = document.getElementById('imageModal');
+            const modalImage = document.getElementById('modal-image');
+            const modalTitle = document.getElementById('modal-title');
+            const modalFilename = document.getElementById('modal-filename');
+            
+            modalImage.src = `/results/${filename}`;
+            modalTitle.textContent = `Chi tiết: ${filename}`;
+            modalFilename.textContent = filename;
+            modal.style.display = 'block';
+        }
+
+        function closeModal() {
+            document.getElementById('imageModal').style.display = 'none';
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('imageModal');
+            if (event.target === modal) {
+                modal.style.display = 'none';
+            }
+        }
+
+        // Delete single file
+        async function deleteFile(filename) {
+            if (!confirm(`Bạn có chắc muốn xóa file "${filename}"?`)) return;
+            
+            try {
+                const response = await fetch('/api/delete-file', {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({filename: filename})
+                });
+                
+                const result = await response.json();
+                
+                if (result.success) {
+                    // Remove card from DOM
+                    const card = document.querySelector(`[data-filename="${filename}"]`);
+                    if (card) {
+                        card.style.opacity = '0';
+                        setTimeout(() => card.remove(), 300);
+                    }
+                    
+                    // Show success message
+                    alert('✅ Đã xóa file thành công!');
+                } else {
+                    alert('❌ Lỗi: ' + result.message);
+                }
+            } catch (error) {
+                alert('❌ Lỗi khi xóa file: ' + error.message);
+            }
+        }
+
+        // Clear all results
+        async function clearAllResults() {
+            if (!confirm('Bạn có chắc muốn xóa TẤT CẢ kết quả?')) return;
+            
+            const loading = document.getElementById('loading');
+            loading.style.display = 'block';
+            
+            try {
+                const response = await fetch('/api/clear-results', {
+                    method: 'POST'
+                });
+                
+                const result = await response.json();
+                
+                if (result.success) {
+                    alert('✅ ' + result.message);
+                    location.reload();
+                } else {
+                    alert('❌ Lỗi: ' + result.message);
+                }
+            } catch (error) {
+                alert('❌ Lỗi: ' + error.message);
+            } finally {
+                loading.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>

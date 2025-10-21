@@ -119,6 +119,29 @@
             margin-bottom: 5px;
         }
 
+        .delete-face-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: rgba(255, 0, 0, 0.7);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        .face-card:hover .delete-face-btn {
+            opacity: 1;
+            transform: scale(1.1);
+        }
+
         .nav-links {
             display: flex;
             gap: 15px;
@@ -202,6 +225,9 @@
                     <div class="face-name">{{ face.name }}</div>
                     <small style="color: #666;">{{ "%.1f"|format(face.size/1024) }} KB</small>
                 </div>
+                <button class="delete-face-btn" onclick="deleteKnownFace('{{ face.filename }}')">
+                    <i class="fas fa-trash"></i>
+                </button>
             </div>
             {% endfor %}
         </div>

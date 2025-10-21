@@ -1756,3 +1756,457 @@
 2025-10-16 02:43:54,174 - werkzeug - INFO - 127.0.0.1 - - [16/Oct/2025 02:43:54] "[36mGET /results/1760555686092_15.jpg HTTP/1.1[0m" 304 -
 2025-10-16 02:44:49,979 - __main__ - INFO - [DELETE] Deleted 1760556878031_15_0.jpg from result, upload, database
 2025-10-16 02:44:49,979 - werkzeug - INFO - 127.0.0.1 - - [16/Oct/2025 02:44:49] "POST /api/delete-file HTTP/1.1" 200 -
+2025-10-20 16:58:05,262 - tasks - INFO - [FOLDER] Created/verified: D:\distributed-face-recognition\distributed-face-recognition\static\results
+2025-10-20 16:58:05,262 - tasks - INFO - [FOLDER] Created/verified: D:\distributed-face-recognition\distributed-face-recognition\static\uploads
+2025-10-20 16:58:05,262 - tasks - INFO - [FOLDER] Created/verified: D:\distributed-face-recognition\distributed-face-recognition\static\known_faces
+2025-10-20 16:58:05,262 - tasks - INFO - [FOLDER] Created/verified: D:\distributed-face-recognition\distributed-face-recognition\database
+2025-10-20 16:58:05,262 - tasks - INFO - [DATABASE] Initialized at D:\distributed-face-recognition\distributed-face-recognition\database\results.db
+2025-10-20 16:58:05,299 - tasks - ERROR - [ERROR] Lỗi khi load quocmanh.jpg: Unsupported image type, must be 8bit gray or RGB image.
+2025-10-20 16:58:05,311 - tasks - ERROR - [ERROR] Lỗi khi load quynhanh.jpg: Unsupported image type, must be 8bit gray or RGB image.
+2025-10-20 16:58:05,311 - tasks - INFO - [STATS] Đã load 0 khuôn mặt đã biết
+2025-10-20 16:58:39,334 - tasks - INFO - [FOLDER] Created/verified: D:\distributed-face-recognition\distributed-face-recognition\static\results
+2025-10-20 16:58:39,350 - tasks - INFO - [FOLDER] Created/verified: D:\distributed-face-recognition\distributed-face-recognition\static\uploads
+2025-10-20 16:58:39,352 - tasks - INFO - [FOLDER] Created/verified: D:\distributed-face-recognition\distributed-face-recognition\static\known_faces
+2025-10-20 16:58:39,352 - tasks - INFO - [FOLDER] Created/verified: D:\distributed-face-recognition\distributed-face-recognition\database
+2025-10-20 16:58:39,352 - tasks - INFO - [DATABASE] Initialized at D:\distributed-face-recognition\distributed-face-recognition\database\results.db
+2025-10-20 16:58:39,371 - tasks - ERROR - [ERROR] Lỗi khi load quocmanh.jpg: Unsupported image type, must be 8bit gray or RGB image.
+2025-10-20 16:58:39,379 - tasks - ERROR - [ERROR] Lỗi khi load quynhanh.jpg: Unsupported image type, must be 8bit gray or RGB image.
+2025-10-20 16:58:39,379 - tasks - INFO - [STATS] Đã load 0 khuôn mặt đã biết
+2025-10-20 16:58:54,978 - tasks - INFO - [FOLDER] Created/verified: D:\distributed-face-recognition\distributed-face-recognition\static\results
+2025-10-20 16:58:54,978 - tasks - INFO - [FOLDER] Created/verified: D:\distributed-face-recognition\distributed-face-recognition\static\uploads
+2025-10-20 16:58:54,978 - tasks - INFO - [FOLDER] Created/verified: D:\distributed-face-recognition\distributed-face-recognition\static\known_faces
+2025-10-20 16:58:54,978 - tasks - INFO - [FOLDER] Created/verified: D:\distributed-face-recognition\distributed-face-recognition\database
+2025-10-20 16:58:54,978 - tasks - INFO - [DATABASE] Initialized at D:\distributed-face-recognition\distributed-face-recognition\database\results.db
+2025-10-20 16:58:54,999 - tasks - ERROR - [ERROR] Lỗi khi load quocmanh.jpg: Unsupported image type, must be 8bit gray or RGB image.
+2025-10-20 16:58:55,006 - tasks - ERROR - [ERROR] Lỗi khi load quynhanh.jpg: Unsupported image type, must be 8bit gray or RGB image.
+2025-10-20 16:58:55,006 - tasks - INFO - [STATS] Đã load 0 khuôn mặt đã biết
+2025-10-20 16:59:39,622 - tasks - INFO - [FOLDER] Created/verified: D:\distributed-face-recognition\distributed-face-recognition\static\results
+2025-10-20 16:59:39,622 - tasks - INFO - [FOLDER] Created/verified: D:\distributed-face-recognition\distributed-face-recognition\static\uploads
+2025-10-20 16:59:39,622 - tasks - INFO - [FOLDER] Created/verified: D:\distributed-face-recognition\distributed-face-recognition\static\known_faces
+2025-10-20 16:59:39,622 - tasks - INFO - [FOLDER] Created/verified: D:\distributed-face-recognition\distributed-face-recognition\database
+2025-10-20 16:59:39,622 - tasks - INFO - [DATABASE] Initialized at D:\distributed-face-recognition\distributed-face-recognition\database\results.db
+2025-10-20 16:59:39,646 - tasks - ERROR - [ERROR] Lỗi khi load quocmanh.jpg: Unsupported image type, must be 8bit gray or RGB image.
+2025-10-20 16:59:39,650 - tasks - ERROR - [ERROR] Lỗi khi load quynhanh.jpg: Unsupported image type, must be 8bit gray or RGB image.
+2025-10-20 16:59:39,650 - tasks - INFO - [STATS] Đã load 0 khuôn mặt đã biết
+2025-10-20 16:59:39,659 - __main__ - INFO - [FOLDER] Ensured: D:\distributed-face-recognition\distributed-face-recognition\static\uploads
+2025-10-20 16:59:39,659 - __main__ - INFO - [FOLDER] Ensured: D:\distributed-face-recognition\distributed-face-recognition\static\results
+2025-10-20 16:59:39,659 - __main__ - INFO - [FOLDER] Ensured: D:\distributed-face-recognition\distributed-face-recognition\static\known_faces
+2025-10-20 16:59:39,659 - __main__ - INFO - [FOLDER] Ensured: D:\distributed-face-recognition\distributed-face-recognition\database
+2025-10-20 16:59:39,663 - __main__ - INFO - [APP] Starting Flask app...
+2025-10-20 16:59:39,664 - __main__ - INFO - [APP] Upload folder: D:\distributed-face-recognition\distributed-face-recognition\static\uploads
+2025-10-20 16:59:39,664 - __main__ - INFO - [APP] Result folder: D:\distributed-face-recognition\distributed-face-recognition\static\results
+2025-10-20 16:59:39,699 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.100.197:5000
+2025-10-20 16:59:39,699 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-10-20 16:59:39,699 - werkzeug - INFO -  * Restarting with stat
+2025-10-20 16:59:41,363 - tasks - INFO - [FOLDER] Created/verified: D:\distributed-face-recognition\distributed-face-recognition\static\results
+2025-10-20 16:59:41,363 - tasks - INFO - [FOLDER] Created/verified: D:\distributed-face-recognition\distributed-face-recognition\static\uploads
+2025-10-20 16:59:41,363 - tasks - INFO - [FOLDER] Created/verified: D:\distributed-face-recognition\distributed-face-recognition\static\known_faces
+2025-10-20 16:59:41,363 - tasks - INFO - [FOLDER] Created/verified: D:\distributed-face-recognition\distributed-face-recognition\database
+2025-10-20 16:59:41,363 - tasks - INFO - [DATABASE] Initialized at D:\distributed-face-recognition\distributed-face-recognition\database\results.db
+2025-10-20 16:59:41,382 - tasks - ERROR - [ERROR] Lỗi khi load quocmanh.jpg: Unsupported image type, must be 8bit gray or RGB image.
+2025-10-20 16:59:41,387 - tasks - ERROR - [ERROR] Lỗi khi load quynhanh.jpg: Unsupported image type, must be 8bit gray or RGB image.
+2025-10-20 16:59:41,387 - tasks - INFO - [STATS] Đã load 0 khuôn mặt đã biết
+2025-10-20 16:59:41,392 - __main__ - INFO - [FOLDER] Ensured: D:\distributed-face-recognition\distributed-face-recognition\static\uploads
+2025-10-20 16:59:41,392 - __main__ - INFO - [FOLDER] Ensured: D:\distributed-face-recognition\distributed-face-recognition\static\results
+2025-10-20 16:59:41,392 - __main__ - INFO - [FOLDER] Ensured: D:\distributed-face-recognition\distributed-face-recognition\static\known_faces
+2025-10-20 16:59:41,393 - __main__ - INFO - [FOLDER] Ensured: D:\distributed-face-recognition\distributed-face-recognition\database
+2025-10-20 16:59:41,396 - __main__ - INFO - [APP] Starting Flask app...
+2025-10-20 16:59:41,396 - __main__ - INFO - [APP] Upload folder: D:\distributed-face-recognition\distributed-face-recognition\static\uploads
+2025-10-20 16:59:41,396 - __main__ - INFO - [APP] Result folder: D:\distributed-face-recognition\distributed-face-recognition\static\results
+2025-10-20 16:59:41,408 - werkzeug - WARNING -  * Debugger is active!
+2025-10-20 16:59:41,422 - werkzeug - INFO -  * Debugger PIN: 526-932-045
+2025-10-20 16:59:58,447 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 16:59:58] "GET / HTTP/1.1" 200 -
+2025-10-20 16:59:59,306 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 16:59:59] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-10-20 17:00:01,034 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:00:01] "GET /api/worker-info HTTP/1.1" 200 -
+2025-10-20 17:00:11,478 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:00:11] "GET /api/worker-info HTTP/1.1" 200 -
+2025-10-20 17:00:20,774 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:00:20] "GET /api/worker-info HTTP/1.1" 200 -
+2025-10-20 17:00:31,851 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:00:31] "GET /api/worker-info HTTP/1.1" 200 -
+2025-10-20 17:00:41,261 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:00:41] "GET /api/worker-info HTTP/1.1" 200 -
+2025-10-20 17:00:51,537 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:00:51] "GET /api/worker-info HTTP/1.1" 200 -
+2025-10-20 17:01:01,544 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:01:01] "GET /api/worker-info HTTP/1.1" 200 -
+2025-10-20 17:01:11,731 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:01:11] "GET /api/worker-info HTTP/1.1" 200 -
+2025-10-20 17:01:21,670 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:01:21] "GET /api/worker-info HTTP/1.1" 200 -
+2025-10-20 17:01:31,898 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:01:31] "GET /api/worker-info HTTP/1.1" 200 -
+2025-10-20 17:01:41,550 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:01:41] "GET /api/worker-info HTTP/1.1" 200 -
+2025-10-20 17:01:51,600 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:01:51] "GET /api/worker-info HTTP/1.1" 200 -
+2025-10-20 17:02:01,254 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:02:01] "GET /api/worker-info HTTP/1.1" 200 -
+2025-10-20 17:02:11,912 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:02:11] "GET /api/worker-info HTTP/1.1" 200 -
+2025-10-20 17:02:21,566 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:02:21] "GET /api/worker-info HTTP/1.1" 200 -
+2025-10-20 17:03:00,679 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:03:00] "GET /api/worker-info HTTP/1.1" 200 -
+2025-10-20 17:04:00,137 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:04:00] "GET /api/worker-info HTTP/1.1" 200 -
+2025-10-20 17:04:48,218 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:04:48] "GET /api/worker-info HTTP/1.1" 200 -
+2025-10-20 17:04:51,133 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:04:51] "GET /api/worker-info HTTP/1.1" 200 -
+2025-10-20 17:05:01,071 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:05:01] "GET /api/worker-info HTTP/1.1" 200 -
+2025-10-20 17:05:03,188 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:05:03] "GET /api/worker-info HTTP/1.1" 200 -
+2025-10-20 17:05:11,069 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:05:11] "GET /api/worker-info HTTP/1.1" 200 -
+2025-10-20 17:05:16,658 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:05:16] "GET /api/worker-info HTTP/1.1" 200 -
+2025-10-20 17:05:16,968 - __main__ - INFO - [SAVE] Saved: D:\distributed-face-recognition\distributed-face-recognition\static\uploads\1760954716966_demo_image_1.jpg (3507 bytes)
+2025-10-20 17:05:16,998 - __main__ - INFO - [TASK] Sent task 0fa2ceb3-a37c-44db-b02c-3a81e11fb5f1 for 1760954716966_demo_image_1.jpg
+2025-10-20 17:05:16,999 - __main__ - INFO - [SAVE] Saved: D:\distributed-face-recognition\distributed-face-recognition\static\uploads\1760954716998_demo_image_2.jpg (3464 bytes)
+2025-10-20 17:05:17,002 - __main__ - INFO - [TASK] Sent task 6f6435f3-adbb-404f-9e3a-2f5e9769830e for 1760954716998_demo_image_2.jpg
+2025-10-20 17:05:17,003 - __main__ - INFO - [SAVE] Saved: D:\distributed-face-recognition\distributed-face-recognition\static\uploads\1760954717002_demo_image_3.jpg (3277 bytes)
+2025-10-20 17:05:17,005 - __main__ - INFO - [TASK] Sent task 5dd440d0-4903-46a9-9d27-d237a56e432f for 1760954717002_demo_image_3.jpg
+2025-10-20 17:05:17,006 - __main__ - INFO - [SAVE] Saved: D:\distributed-face-recognition\distributed-face-recognition\static\uploads\1760954717006_demo_image_4.jpg (3584 bytes)
+2025-10-20 17:05:17,009 - __main__ - INFO - [TASK] Sent task c31e92f2-8854-43fb-b9ea-95827c599ab0 for 1760954717006_demo_image_4.jpg
+2025-10-20 17:05:17,013 - __main__ - INFO - [SAVE] Saved: D:\distributed-face-recognition\distributed-face-recognition\static\uploads\1760954717010_demo_image_5.jpg (3556 bytes)
+2025-10-20 17:05:17,016 - __main__ - INFO - [TASK] Sent task cb79ca63-d191-4904-bb8a-1f241d95ccd9 for 1760954717010_demo_image_5.jpg
+2025-10-20 17:05:17,017 - __main__ - INFO - [SUMMARY] 5 tasks sent, 0 failed
+2025-10-20 17:05:17,018 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:05:17] "POST / HTTP/1.1" 200 -
+2025-10-20 17:05:19,069 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:05:19] "GET /api/worker-info HTTP/1.1" 200 -
+2025-10-20 17:05:21,481 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:05:21] "GET /api/worker-info HTTP/1.1" 200 -
+2025-10-20 17:05:25,343 - __main__ - INFO - [DATABASE] Found 18 results in database
+2025-10-20 17:05:25,343 - __main__ - INFO - [RESULTS] Displaying 18 results, 2.31 MB
+2025-10-20 17:05:25,358 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:05:25] "GET /results HTTP/1.1" 200 -
+2025-10-20 17:05:25,376 - __main__ - INFO - [SERVE] Serving: D:\distributed-face-recognition\distributed-face-recognition\static\results\1760556878049_15_3.jpg (67217 bytes)
+2025-10-20 17:05:25,413 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:05:25] "GET /results/1760556878049_15_3.jpg HTTP/1.1" 200 -
+2025-10-20 17:05:25,583 - __main__ - INFO - [SERVE] Serving: D:\distributed-face-recognition\distributed-face-recognition\static\results\1760556878031_16.jpg (166919 bytes)
+2025-10-20 17:05:25,585 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:05:25] "GET /results/1760556878031_16.jpg HTTP/1.1" 200 -
+2025-10-20 17:05:26,001 - __main__ - INFO - [SERVE] Serving: D:\distributed-face-recognition\distributed-face-recognition\static\results\1760556878031_15_1.jpg (66418 bytes)
+2025-10-20 17:05:26,001 - __main__ - INFO - [SERVE] Serving: D:\distributed-face-recognition\distributed-face-recognition\static\results\1760556878031_15_2.jpg (67348 bytes)
+2025-10-20 17:05:26,003 - __main__ - INFO - [SERVE] Serving: D:\distributed-face-recognition\distributed-face-recognition\static\results\1760556878031_15_4.jpg (67880 bytes)
+2025-10-20 17:05:26,005 - __main__ - INFO - [SERVE] Serving: D:\distributed-face-recognition\distributed-face-recognition\static\results\1760556878015_15.jpg (166809 bytes)
+2025-10-20 17:05:26,005 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:05:26] "GET /results/1760556878031_15_1.jpg HTTP/1.1" 200 -
+2025-10-20 17:05:26,006 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:05:26] "GET /results/1760556878031_15_2.jpg HTTP/1.1" 200 -
+2025-10-20 17:05:26,006 - __main__ - INFO - [SERVE] Serving: D:\distributed-face-recognition\distributed-face-recognition\static\results\1760556878015_14.jpg (165887 bytes)
+2025-10-20 17:05:26,007 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:05:26] "GET /results/1760556878031_15_4.jpg HTTP/1.1" 200 -
+2025-10-20 17:05:26,008 - __main__ - INFO - [SERVE] Serving: D:\distributed-face-recognition\distributed-face-recognition\static\results\1760556877840_quynhanh.jpg (214520 bytes)
+2025-10-20 17:05:26,008 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:05:26] "GET /results/1760556878015_15.jpg HTTP/1.1" 200 -
+2025-10-20 17:05:26,008 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:05:26] "GET /results/1760556878015_14.jpg HTTP/1.1" 200 -
+2025-10-20 17:05:26,011 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:05:26] "GET /results/1760556877840_quynhanh.jpg HTTP/1.1" 200 -
+2025-10-20 17:05:26,317 - __main__ - INFO - [SERVE] Serving: D:\distributed-face-recognition\distributed-face-recognition\static\results\1760556442243_17_78.jpg (89120 bytes)
+2025-10-20 17:05:26,320 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:05:26] "GET /results/1760556442243_17_78.jpg HTTP/1.1" 200 -
+2025-10-20 17:05:26,322 - __main__ - INFO - [SERVE] Serving: D:\distributed-face-recognition\distributed-face-recognition\static\results\1760556442243_17_69.jpg (91758 bytes)
+2025-10-20 17:05:26,323 - __main__ - INFO - [SERVE] Serving: D:\distributed-face-recognition\distributed-face-recognition\static\results\1760556442243_15.jpg (166809 bytes)
+2025-10-20 17:05:26,324 - __main__ - INFO - [SERVE] Serving: D:\distributed-face-recognition\distributed-face-recognition\static\results\1760556442241_14.jpg (165887 bytes)
+2025-10-20 17:05:26,325 - __main__ - INFO - [SERVE] Serving: D:\distributed-face-recognition\distributed-face-recognition\static\results\1760556442072_6.jpg (166168 bytes)
+2025-10-20 17:05:26,325 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:05:26] "GET /results/1760556442243_15.jpg HTTP/1.1" 200 -
+2025-10-20 17:05:26,325 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:05:26] "GET /results/1760556442243_17_69.jpg HTTP/1.1" 200 -
+2025-10-20 17:05:26,326 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:05:26] "GET /results/1760556442241_14.jpg HTTP/1.1" 200 -
+2025-10-20 17:05:26,327 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:05:26] "GET /results/1760556442072_6.jpg HTTP/1.1" 200 -
+2025-10-20 17:05:26,329 - __main__ - INFO - [SERVE] Serving: D:\distributed-face-recognition\distributed-face-recognition\static\results\1760556017431_17_69.jpg (91758 bytes)
+2025-10-20 17:05:26,331 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:05:26] "GET /results/1760556017431_17_69.jpg HTTP/1.1" 200 -
+2025-10-20 17:05:26,625 - __main__ - INFO - [SERVE] Serving: D:\distributed-face-recognition\distributed-face-recognition\static\results\1760555882628_15_18.jpg (72287 bytes)
+2025-10-20 17:05:26,628 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:05:26] "GET /results/1760555882628_15_18.jpg HTTP/1.1" 200 -
+2025-10-20 17:05:26,634 - __main__ - INFO - [SERVE] Serving: D:\distributed-face-recognition\distributed-face-recognition\static\results\1760555766969_snapedit_1696262822213.png (260178 bytes)
+2025-10-20 17:05:26,636 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:05:26] "GET /results/1760555766969_snapedit_1696262822213.png HTTP/1.1" 200 -
+2025-10-20 17:05:26,638 - __main__ - INFO - [SERVE] Serving: D:\distributed-face-recognition\distributed-face-recognition\static\results\1760555724007_6.jpg (166168 bytes)
+2025-10-20 17:05:26,638 - __main__ - INFO - [SERVE] Serving: D:\distributed-face-recognition\distributed-face-recognition\static\results\1760555686092_15.jpg (166809 bytes)
+2025-10-20 17:05:26,639 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:05:26] "GET /results/1760555724007_6.jpg HTTP/1.1" 200 -
+2025-10-20 17:05:26,639 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:05:26] "GET /results/1760555686092_15.jpg HTTP/1.1" 200 -
+2025-10-20 17:06:29,431 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:06:29] "GET /dashboard HTTP/1.1" 200 -
+2025-10-20 17:06:35,106 - __main__ - INFO - [DATABASE] Found 18 results in database
+2025-10-20 17:06:35,106 - __main__ - INFO - [RESULTS] Displaying 18 results, 2.31 MB
+2025-10-20 17:06:35,107 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:06:35] "GET /results HTTP/1.1" 200 -
+2025-10-20 17:06:35,124 - __main__ - INFO - [SERVE] Serving: D:\distributed-face-recognition\distributed-face-recognition\static\results\1760556878049_15_3.jpg (67217 bytes)
+2025-10-20 17:06:35,125 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:06:35] "[36mGET /results/1760556878049_15_3.jpg HTTP/1.1[0m" 304 -
+2025-10-20 17:06:35,425 - __main__ - INFO - [SERVE] Serving: D:\distributed-face-recognition\distributed-face-recognition\static\results\1760556878031_16.jpg (166919 bytes)
+2025-10-20 17:06:35,426 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:06:35] "[36mGET /results/1760556878031_16.jpg HTTP/1.1[0m" 304 -
+2025-10-20 17:06:35,456 - __main__ - INFO - [SERVE] Serving: D:\distributed-face-recognition\distributed-face-recognition\static\results\1760556878031_15_1.jpg (66418 bytes)
+2025-10-20 17:06:35,457 - __main__ - INFO - [SERVE] Serving: D:\distributed-face-recognition\distributed-face-recognition\static\results\1760556878031_15_2.jpg (67348 bytes)
+2025-10-20 17:06:35,458 - __main__ - INFO - [SERVE] Serving: D:\distributed-face-recognition\distributed-face-recognition\static\results\1760556878031_15_4.jpg (67880 bytes)
+2025-10-20 17:06:35,459 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:06:35] "[36mGET /results/1760556878031_15_1.jpg HTTP/1.1[0m" 304 -
+2025-10-20 17:06:35,459 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:06:35] "[36mGET /results/1760556878031_15_2.jpg HTTP/1.1[0m" 304 -
+2025-10-20 17:06:35,460 - __main__ - INFO - [SERVE] Serving: D:\distributed-face-recognition\distributed-face-recognition\static\results\1760556878015_15.jpg (166809 bytes)
+2025-10-20 17:06:35,461 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:06:35] "[36mGET /results/1760556878031_15_4.jpg HTTP/1.1[0m" 304 -
+2025-10-20 17:06:35,461 - __main__ - INFO - [SERVE] Serving: D:\distributed-face-recognition\distributed-face-recognition\static\results\1760556878015_14.jpg (165887 bytes)
+2025-10-20 17:06:35,465 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:06:35] "[36mGET /results/1760556878015_15.jpg HTTP/1.1[0m" 304 -
+2025-10-20 17:06:35,466 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:06:35] "[36mGET /results/1760556878015_14.jpg HTTP/1.1[0m" 304 -
+2025-10-20 17:06:35,729 - __main__ - INFO - [SERVE] Serving: D:\distributed-face-recognition\distributed-face-recognition\static\results\1760556877840_quynhanh.jpg (214520 bytes)
+2025-10-20 17:06:35,730 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:06:35] "[36mGET /results/1760556877840_quynhanh.jpg HTTP/1.1[0m" 304 -
+2025-10-20 17:06:35,768 - __main__ - INFO - [SERVE] Serving: D:\distributed-face-recognition\distributed-face-recognition\static\results\1760556442243_17_78.jpg (89120 bytes)
+2025-10-20 17:06:35,768 - __main__ - INFO - [SERVE] Serving: D:\distributed-face-recognition\distributed-face-recognition\static\results\1760556442243_17_69.jpg (91758 bytes)
+2025-10-20 17:06:35,769 - __main__ - INFO - [SERVE] Serving: D:\distributed-face-recognition\distributed-face-recognition\static\results\1760556442243_15.jpg (166809 bytes)
+2025-10-20 17:06:35,769 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:06:35] "[36mGET /results/1760556442243_17_78.jpg HTTP/1.1[0m" 304 -
+2025-10-20 17:06:35,770 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:06:35] "[36mGET /results/1760556442243_17_69.jpg HTTP/1.1[0m" 304 -
+2025-10-20 17:06:35,770 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:06:35] "[36mGET /results/1760556442243_15.jpg HTTP/1.1[0m" 304 -
+2025-10-20 17:06:35,775 - __main__ - INFO - [SERVE] Serving: D:\distributed-face-recognition\distributed-face-recognition\static\results\1760556442241_14.jpg (165887 bytes)
+2025-10-20 17:06:35,775 - __main__ - INFO - [SERVE] Serving: D:\distributed-face-recognition\distributed-face-recognition\static\results\1760556442072_6.jpg (166168 bytes)
+2025-10-20 17:06:35,776 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:06:35] "[36mGET /results/1760556442241_14.jpg HTTP/1.1[0m" 304 -
+2025-10-20 17:06:35,776 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:06:35] "[36mGET /results/1760556442072_6.jpg HTTP/1.1[0m" 304 -
+2025-10-20 17:06:36,035 - __main__ - INFO - [SERVE] Serving: D:\distributed-face-recognition\distributed-face-recognition\static\results\1760556017431_17_69.jpg (91758 bytes)
+2025-10-20 17:06:36,036 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:06:36] "[36mGET /results/1760556017431_17_69.jpg HTTP/1.1[0m" 304 -
+2025-10-20 17:06:36,077 - __main__ - INFO - [SERVE] Serving: D:\distributed-face-recognition\distributed-face-recognition\static\results\1760555882628_15_18.jpg (72287 bytes)
+2025-10-20 17:06:36,077 - __main__ - INFO - [SERVE] Serving: D:\distributed-face-recognition\distributed-face-recognition\static\results\1760555766969_snapedit_1696262822213.png (260178 bytes)
+2025-10-20 17:06:36,078 - __main__ - INFO - [SERVE] Serving: D:\distributed-face-recognition\distributed-face-recognition\static\results\1760555724007_6.jpg (166168 bytes)
+2025-10-20 17:06:36,079 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:06:36] "[36mGET /results/1760555882628_15_18.jpg HTTP/1.1[0m" 304 -
+2025-10-20 17:06:36,079 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:06:36] "[36mGET /results/1760555766969_snapedit_1696262822213.png HTTP/1.1[0m" 304 -
+2025-10-20 17:06:36,081 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:06:36] "[36mGET /results/1760555724007_6.jpg HTTP/1.1[0m" 304 -
+2025-10-20 17:06:36,082 - __main__ - INFO - [SERVE] Serving: D:\distributed-face-recognition\distributed-face-recognition\static\results\1760555686092_15.jpg (166809 bytes)
+2025-10-20 17:06:36,085 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:06:36] "[36mGET /results/1760555686092_15.jpg HTTP/1.1[0m" 304 -
+2025-10-20 17:06:36,957 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:06:36] "GET /known-faces HTTP/1.1" 200 -
+2025-10-20 17:06:37,046 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:06:37] "GET /known-faces/quocmanh.jpg HTTP/1.1" 200 -
+2025-10-20 17:06:37,206 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:06:37] "GET /known-faces/quynhanh.jpg HTTP/1.1" 200 -
+2025-10-20 17:07:43,884 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:07:43] "GET / HTTP/1.1" 200 -
+2025-10-20 17:07:46,232 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:07:46] "GET /api/worker-info HTTP/1.1" 200 -
+2025-10-20 17:07:56,136 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:07:56] "GET /api/worker-info HTTP/1.1" 200 -
+2025-10-20 17:08:06,532 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:08:06] "GET /api/worker-info HTTP/1.1" 200 -
+2025-10-20 17:08:16,182 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:08:16] "GET /api/worker-info HTTP/1.1" 200 -
+2025-10-20 17:08:26,840 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:08:26] "GET /api/worker-info HTTP/1.1" 200 -
+2025-10-20 17:08:36,488 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:08:36] "GET /api/worker-info HTTP/1.1" 200 -
+2025-10-20 17:08:46,537 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:08:46] "GET /api/worker-info HTTP/1.1" 200 -
+2025-10-20 17:08:56,187 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:08:56] "GET /api/worker-info HTTP/1.1" 200 -
+2025-10-20 17:09:06,848 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:09:06] "GET /api/worker-info HTTP/1.1" 200 -
+2025-10-20 17:09:16,498 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:09:16] "GET /api/worker-info HTTP/1.1" 200 -
+2025-10-20 17:09:26,650 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:09:26] "GET /api/worker-info HTTP/1.1" 200 -
+2025-10-20 17:09:36,305 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:09:36] "GET /api/worker-info HTTP/1.1" 200 -
+2025-10-20 17:09:46,459 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:09:46] "GET /api/worker-info HTTP/1.1" 200 -
+2025-10-20 17:09:56,510 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:09:56] "GET /api/worker-info HTTP/1.1" 200 -
+2025-10-20 17:10:32,895 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:10:32] "GET / HTTP/1.1" 200 -
+2025-10-20 17:10:34,210 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:10:34] "GET /api/worker-info HTTP/1.1" 200 -
+2025-10-20 17:10:35,717 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:10:35] "GET /api/worker-info HTTP/1.1" 200 -
+2025-10-20 17:10:44,682 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:10:44] "GET / HTTP/1.1" 200 -
+2025-10-20 17:10:45,165 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:10:45] "GET /api/worker-info HTTP/1.1" 200 -
+2025-10-20 17:10:47,274 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:10:47] "GET /api/worker-info HTTP/1.1" 200 -
+2025-10-20 17:10:57,226 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:10:57] "GET /api/worker-info HTTP/1.1" 200 -
+2025-10-20 17:11:02,458 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:11:02] "GET / HTTP/1.1" 200 -
+2025-10-20 17:11:05,068 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:11:05] "GET /api/worker-info HTTP/1.1" 200 -
+2025-10-20 17:11:15,521 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:11:15] "GET /api/worker-info HTTP/1.1" 200 -
+2025-10-20 17:11:25,438 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:11:25] "GET /api/worker-info HTTP/1.1" 200 -
+2025-10-20 17:11:31,164 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:11:31] "GET / HTTP/1.1" 200 -
+2025-10-20 17:11:33,813 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:11:33] "GET /api/worker-info HTTP/1.1" 200 -
+2025-10-20 17:11:43,662 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:11:43] "GET /api/worker-info HTTP/1.1" 200 -
+2025-10-20 17:11:54,720 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:11:54] "GET /api/worker-info HTTP/1.1" 200 -
+2025-10-20 17:12:04,439 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:12:04] "GET /api/worker-info HTTP/1.1" 200 -
+2025-10-20 17:12:14,520 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:12:14] "GET /api/worker-info HTTP/1.1" 200 -
+2025-10-20 17:12:24,472 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:12:24] "GET /api/worker-info HTTP/1.1" 200 -
+2025-10-20 17:12:34,421 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:12:34] "GET /api/worker-info HTTP/1.1" 200 -
+2025-10-20 17:12:44,876 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:12:44] "GET /api/worker-info HTTP/1.1" 200 -
+2025-10-20 17:12:53,224 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:12:53] "GET /api/worker-info HTTP/1.1" 200 -
+2025-10-20 17:13:04,676 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:13:04] "GET /api/worker-info HTTP/1.1" 200 -
+2025-10-20 17:13:14,623 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:13:14] "GET /api/worker-info HTTP/1.1" 200 -
+2025-10-20 17:13:24,579 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:13:24] "GET /api/worker-info HTTP/1.1" 200 -
+2025-10-20 17:13:34,538 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:13:34] "GET /api/worker-info HTTP/1.1" 200 -
+2025-10-20 17:13:44,440 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:13:44] "GET /api/worker-info HTTP/1.1" 200 -
+2025-10-20 17:13:54,337 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:13:54] "GET /api/worker-info HTTP/1.1" 200 -
+2025-10-20 17:14:55,559 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:14:55] "GET /api/worker-info HTTP/1.1" 200 -
+2025-10-20 17:15:54,252 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:15:54] "GET / HTTP/1.1" 200 -
+2025-10-20 17:15:55,168 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:15:55] "GET /api/worker-info HTTP/1.1" 200 -
+2025-10-20 17:15:56,675 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:15:56] "GET /api/worker-info HTTP/1.1" 200 -
+2025-10-20 17:16:07,633 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:16:07] "GET /api/worker-info HTTP/1.1" 200 -
+2025-10-20 17:16:17,439 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:16:17] "GET /api/worker-info HTTP/1.1" 200 -
+2025-10-20 17:16:27,544 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:16:27] "GET /api/worker-info HTTP/1.1" 200 -
+2025-10-20 17:16:32,992 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:16:32] "GET / HTTP/1.1" 200 -
+2025-10-20 17:16:35,055 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:16:35] "GET /api/worker-info HTTP/1.1" 200 -
+2025-10-20 17:16:45,233 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:16:45] "GET /api/worker-info HTTP/1.1" 200 -
+2025-10-20 17:16:55,436 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:16:55] "GET /api/worker-info HTTP/1.1" 200 -
+2025-10-20 17:17:05,634 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:17:05] "GET /api/worker-info HTTP/1.1" 200 -
+2025-10-20 17:17:15,579 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:17:15] "GET /api/worker-info HTTP/1.1" 200 -
+2025-10-20 17:17:25,534 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:17:25] "GET /api/worker-info HTTP/1.1" 200 -
+2025-10-20 17:17:35,486 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:17:35] "GET /api/worker-info HTTP/1.1" 200 -
+2025-10-20 17:17:45,137 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:17:45] "GET /api/worker-info HTTP/1.1" 200 -
+2025-10-20 17:18:00,514 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:18:00] "GET /api/worker-info HTTP/1.1" 200 -
+2025-10-20 17:18:54,565 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:18:54] "GET / HTTP/1.1" 200 -
+2025-10-20 17:18:55,405 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:18:55] "GET /api/worker-info HTTP/1.1" 200 -
+2025-10-20 17:18:57,012 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:18:57] "GET /api/worker-info HTTP/1.1" 200 -
+2025-10-20 17:19:06,960 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:19:06] "GET /api/worker-info HTTP/1.1" 200 -
+2025-10-20 17:19:17,413 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:19:17] "GET /api/worker-info HTTP/1.1" 200 -
+2025-10-20 17:19:27,352 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:19:27] "GET /api/worker-info HTTP/1.1" 200 -
+2025-10-20 17:19:37,808 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:19:37] "GET /api/worker-info HTTP/1.1" 200 -
+2025-10-20 17:19:47,137 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:19:47] "GET /api/worker-info HTTP/1.1" 200 -
+2025-10-20 17:19:57,617 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:19:57] "GET /api/worker-info HTTP/1.1" 200 -
+2025-10-20 17:20:07,568 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:20:07] "GET /api/worker-info HTTP/1.1" 200 -
+2025-10-20 17:20:17,521 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:20:17] "GET /api/worker-info HTTP/1.1" 200 -
+2025-10-20 17:21:00,347 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:21:00] "GET /api/worker-info HTTP/1.1" 200 -
+2025-10-20 17:21:40,988 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:21:40] "GET / HTTP/1.1" 200 -
+2025-10-20 17:21:42,393 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:21:42] "GET /api/worker-info HTTP/1.1" 200 -
+2025-10-20 17:21:43,772 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:21:43] "GET /api/worker-info HTTP/1.1" 200 -
+2025-10-20 17:21:53,626 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:21:53] "GET /api/worker-info HTTP/1.1" 200 -
+2025-10-20 17:22:03,574 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:22:03] "GET /api/worker-info HTTP/1.1" 200 -
+2025-10-20 17:22:06,612 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:22:06] "GET /api/worker-info HTTP/1.1" 200 -
+2025-10-20 17:22:13,525 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:22:13] "GET /api/worker-info HTTP/1.1" 200 -
+2025-10-20 17:22:16,588 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:22:16] "GET / HTTP/1.1" 200 -
+2025-10-20 17:22:19,254 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:22:19] "GET /api/worker-info HTTP/1.1" 200 -
+2025-10-20 17:22:21,865 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:22:21] "GET /api/worker-info HTTP/1.1" 200 -
+2025-10-20 17:22:29,701 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:22:29] "GET /api/worker-info HTTP/1.1" 200 -
+2025-10-20 17:22:39,138 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:22:39] "GET /api/worker-info HTTP/1.1" 200 -
+2025-10-20 17:22:49,601 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:22:49] "GET /api/worker-info HTTP/1.1" 200 -
+2025-10-20 17:22:59,552 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:22:59] "GET /api/worker-info HTTP/1.1" 200 -
+2025-10-20 17:23:08,264 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:23:08] "GET / HTTP/1.1" 200 -
+2025-10-20 17:23:09,402 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:23:09] "GET /api/worker-info HTTP/1.1" 200 -
+2025-10-20 17:23:11,009 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:23:11] "GET /api/worker-info HTTP/1.1" 200 -
+2025-10-20 17:23:13,118 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:23:13] "GET /api/worker-info HTTP/1.1" 200 -
+2025-10-20 17:23:20,955 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:23:20] "GET /api/worker-info HTTP/1.1" 200 -
+2025-10-20 17:23:24,295 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:23:24] "GET / HTTP/1.1" 200 -
+2025-10-20 17:23:26,686 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:23:26] "GET /api/worker-info HTTP/1.1" 200 -
+2025-10-20 17:23:37,746 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:23:37] "GET /api/worker-info HTTP/1.1" 200 -
+2025-10-20 17:23:47,596 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:23:47] "GET /api/worker-info HTTP/1.1" 200 -
+2025-10-20 17:23:57,437 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:23:57] "GET /api/worker-info HTTP/1.1" 200 -
+2025-10-20 17:24:07,500 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:24:07] "GET /api/worker-info HTTP/1.1" 200 -
+2025-10-20 17:24:17,456 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:24:17] "GET /api/worker-info HTTP/1.1" 200 -
+2025-10-20 17:24:27,402 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:24:27] "GET /api/worker-info HTTP/1.1" 200 -
+2025-10-20 17:24:37,858 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:24:37] "GET /api/worker-info HTTP/1.1" 200 -
+2025-10-20 17:25:00,274 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:25:00] "GET /api/worker-info HTTP/1.1" 200 -
+2025-10-20 17:25:11,832 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:25:11] "GET /api/worker-info HTTP/1.1" 200 -
+2025-10-20 17:25:15,953 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:25:15] "GET /api/worker-info HTTP/1.1" 200 -
+2025-10-20 17:25:18,564 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:25:18] "GET /api/worker-info HTTP/1.1" 200 -
+2025-10-20 17:25:20,672 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:25:20] "GET /api/worker-info HTTP/1.1" 200 -
+2025-10-20 17:25:22,984 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:25:22] "GET /api/worker-info HTTP/1.1" 200 -
+2025-10-20 17:25:26,401 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:25:26] "GET /api/worker-info HTTP/1.1" 200 -
+2025-10-20 17:25:37,968 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:25:37] "GET /api/worker-info HTTP/1.1" 200 -
+2025-10-20 17:25:47,316 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:25:47] "GET /api/worker-info HTTP/1.1" 200 -
+2025-10-20 17:25:57,764 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:25:57] "GET /api/worker-info HTTP/1.1" 200 -
+2025-10-20 17:26:07,137 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:26:07] "GET /api/worker-info HTTP/1.1" 200 -
+2025-10-20 17:26:17,661 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:26:17] "GET /api/worker-info HTTP/1.1" 200 -
+2025-10-20 17:26:27,611 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:26:27] "GET /api/worker-info HTTP/1.1" 200 -
+2025-10-20 17:27:00,494 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:27:00] "GET /api/worker-info HTTP/1.1" 200 -
+2025-10-20 17:28:00,136 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:28:00] "GET /api/worker-info HTTP/1.1" 200 -
+2025-10-20 17:29:00,697 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:29:00] "GET /api/worker-info HTTP/1.1" 200 -
+2025-10-20 17:30:00,301 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:30:00] "GET /api/worker-info HTTP/1.1" 200 -
+2025-10-20 17:30:05,967 - __main__ - INFO - [DATABASE] Found 18 results in database
+2025-10-20 17:30:05,968 - __main__ - INFO - [RESULTS] Displaying 18 results, 2.31 MB
+2025-10-20 17:30:05,969 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:30:05] "GET /results HTTP/1.1" 200 -
+2025-10-20 17:30:06,282 - __main__ - INFO - [SERVE] Serving: D:\distributed-face-recognition\distributed-face-recognition\static\results\1760556878049_15_3.jpg (67217 bytes)
+2025-10-20 17:30:06,283 - __main__ - INFO - [SERVE] Serving: D:\distributed-face-recognition\distributed-face-recognition\static\results\1760556878031_16.jpg (166919 bytes)
+2025-10-20 17:30:06,283 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:30:06] "[36mGET /results/1760556878049_15_3.jpg HTTP/1.1[0m" 304 -
+2025-10-20 17:30:06,285 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:30:06] "[36mGET /results/1760556878031_16.jpg HTTP/1.1[0m" 304 -
+2025-10-20 17:30:06,534 - __main__ - INFO - [SERVE] Serving: D:\distributed-face-recognition\distributed-face-recognition\static\results\1760556878031_15_1.jpg (66418 bytes)
+2025-10-20 17:30:06,535 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:30:06] "[36mGET /results/1760556878031_15_1.jpg HTTP/1.1[0m" 304 -
+2025-10-20 17:30:06,558 - __main__ - INFO - [SERVE] Serving: D:\distributed-face-recognition\distributed-face-recognition\static\results\1760556878031_15_2.jpg (67348 bytes)
+2025-10-20 17:30:06,560 - __main__ - INFO - [SERVE] Serving: D:\distributed-face-recognition\distributed-face-recognition\static\results\1760556878031_15_4.jpg (67880 bytes)
+2025-10-20 17:30:06,562 - __main__ - INFO - [SERVE] Serving: D:\distributed-face-recognition\distributed-face-recognition\static\results\1760556878015_15.jpg (166809 bytes)
+2025-10-20 17:30:06,562 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:30:06] "[36mGET /results/1760556878031_15_2.jpg HTTP/1.1[0m" 304 -
+2025-10-20 17:30:06,563 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:30:06] "[36mGET /results/1760556878031_15_4.jpg HTTP/1.1[0m" 304 -
+2025-10-20 17:30:06,563 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:30:06] "[36mGET /results/1760556878015_15.jpg HTTP/1.1[0m" 304 -
+2025-10-20 17:30:06,589 - __main__ - INFO - [SERVE] Serving: D:\distributed-face-recognition\distributed-face-recognition\static\results\1760556878015_14.jpg (165887 bytes)
+2025-10-20 17:30:06,591 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:30:06] "[36mGET /results/1760556878015_14.jpg HTTP/1.1[0m" 304 -
+2025-10-20 17:30:06,591 - __main__ - INFO - [SERVE] Serving: D:\distributed-face-recognition\distributed-face-recognition\static\results\1760556877840_quynhanh.jpg (214520 bytes)
+2025-10-20 17:30:06,592 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:30:06] "[36mGET /results/1760556877840_quynhanh.jpg HTTP/1.1[0m" 304 -
+2025-10-20 17:30:06,839 - __main__ - INFO - [SERVE] Serving: D:\distributed-face-recognition\distributed-face-recognition\static\results\1760556442243_17_78.jpg (89120 bytes)
+2025-10-20 17:30:06,840 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:30:06] "[36mGET /results/1760556442243_17_78.jpg HTTP/1.1[0m" 304 -
+2025-10-20 17:30:06,868 - __main__ - INFO - [SERVE] Serving: D:\distributed-face-recognition\distributed-face-recognition\static\results\1760556442243_17_69.jpg (91758 bytes)
+2025-10-20 17:30:06,870 - __main__ - INFO - [SERVE] Serving: D:\distributed-face-recognition\distributed-face-recognition\static\results\1760556442243_15.jpg (166809 bytes)
+2025-10-20 17:30:06,871 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:30:06] "[36mGET /results/1760556442243_17_69.jpg HTTP/1.1[0m" 304 -
+2025-10-20 17:30:06,872 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:30:06] "[36mGET /results/1760556442243_15.jpg HTTP/1.1[0m" 304 -
+2025-10-20 17:30:06,873 - __main__ - INFO - [SERVE] Serving: D:\distributed-face-recognition\distributed-face-recognition\static\results\1760556442241_14.jpg (165887 bytes)
+2025-10-20 17:30:06,876 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:30:06] "[36mGET /results/1760556442241_14.jpg HTTP/1.1[0m" 304 -
+2025-10-20 17:30:06,897 - __main__ - INFO - [SERVE] Serving: D:\distributed-face-recognition\distributed-face-recognition\static\results\1760556442072_6.jpg (166168 bytes)
+2025-10-20 17:30:06,897 - __main__ - INFO - [SERVE] Serving: D:\distributed-face-recognition\distributed-face-recognition\static\results\1760556017431_17_69.jpg (91758 bytes)
+2025-10-20 17:30:06,898 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:30:06] "[36mGET /results/1760556442072_6.jpg HTTP/1.1[0m" 304 -
+2025-10-20 17:30:06,898 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:30:06] "[36mGET /results/1760556017431_17_69.jpg HTTP/1.1[0m" 304 -
+2025-10-20 17:30:07,133 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:30:07] "GET /api/worker-info HTTP/1.1" 200 -
+2025-10-20 17:30:07,146 - __main__ - INFO - [SERVE] Serving: D:\distributed-face-recognition\distributed-face-recognition\static\results\1760555882628_15_18.jpg (72287 bytes)
+2025-10-20 17:30:07,147 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:30:07] "[36mGET /results/1760555882628_15_18.jpg HTTP/1.1[0m" 304 -
+2025-10-20 17:30:07,180 - __main__ - INFO - [SERVE] Serving: D:\distributed-face-recognition\distributed-face-recognition\static\results\1760555766969_snapedit_1696262822213.png (260178 bytes)
+2025-10-20 17:30:07,180 - __main__ - INFO - [SERVE] Serving: D:\distributed-face-recognition\distributed-face-recognition\static\results\1760555724007_6.jpg (166168 bytes)
+2025-10-20 17:30:07,182 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:30:07] "[36mGET /results/1760555724007_6.jpg HTTP/1.1[0m" 304 -
+2025-10-20 17:30:07,182 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:30:07] "[36mGET /results/1760555766969_snapedit_1696262822213.png HTTP/1.1[0m" 304 -
+2025-10-20 17:30:07,183 - __main__ - INFO - [SERVE] Serving: D:\distributed-face-recognition\distributed-face-recognition\static\results\1760555686092_15.jpg (166809 bytes)
+2025-10-20 17:30:07,185 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:30:07] "[36mGET /results/1760555686092_15.jpg HTTP/1.1[0m" 304 -
+2025-10-20 17:31:04,210 - __main__ - INFO - [DATABASE] Found 18 results in database
+2025-10-20 17:31:04,210 - __main__ - INFO - [RESULTS] Displaying 18 results, 2.31 MB
+2025-10-20 17:31:04,212 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:31:04] "GET /results HTTP/1.1" 200 -
+2025-10-20 17:31:04,222 - __main__ - INFO - [SERVE] Serving: D:\distributed-face-recognition\distributed-face-recognition\static\results\1760556878049_15_3.jpg (67217 bytes)
+2025-10-20 17:31:04,223 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:31:04] "[36mGET /results/1760556878049_15_3.jpg HTTP/1.1[0m" 304 -
+2025-10-20 17:31:04,456 - __main__ - INFO - [SERVE] Serving: D:\distributed-face-recognition\distributed-face-recognition\static\results\1760556878031_16.jpg (166919 bytes)
+2025-10-20 17:31:04,457 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:31:04] "[36mGET /results/1760556878031_16.jpg HTTP/1.1[0m" 304 -
+2025-10-20 17:31:04,564 - __main__ - INFO - [SERVE] Serving: D:\distributed-face-recognition\distributed-face-recognition\static\results\1760556878031_15_1.jpg (66418 bytes)
+2025-10-20 17:31:04,564 - __main__ - INFO - [SERVE] Serving: D:\distributed-face-recognition\distributed-face-recognition\static\results\1760556878031_15_2.jpg (67348 bytes)
+2025-10-20 17:31:04,564 - __main__ - INFO - [SERVE] Serving: D:\distributed-face-recognition\distributed-face-recognition\static\results\1760556878031_15_4.jpg (67880 bytes)
+2025-10-20 17:31:04,565 - __main__ - INFO - [SERVE] Serving: D:\distributed-face-recognition\distributed-face-recognition\static\results\1760556878015_15.jpg (166809 bytes)
+2025-10-20 17:31:04,566 - __main__ - INFO - [SERVE] Serving: D:\distributed-face-recognition\distributed-face-recognition\static\results\1760556878015_14.jpg (165887 bytes)
+2025-10-20 17:31:04,566 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:31:04] "[36mGET /results/1760556878031_15_1.jpg HTTP/1.1[0m" 304 -
+2025-10-20 17:31:04,567 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:31:04] "[36mGET /results/1760556878031_15_2.jpg HTTP/1.1[0m" 304 -
+2025-10-20 17:31:04,567 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:31:04] "[36mGET /results/1760556878015_15.jpg HTTP/1.1[0m" 304 -
+2025-10-20 17:31:04,567 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:31:04] "[36mGET /results/1760556878031_15_4.jpg HTTP/1.1[0m" 304 -
+2025-10-20 17:31:04,567 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:31:04] "[36mGET /results/1760556878015_14.jpg HTTP/1.1[0m" 304 -
+2025-10-20 17:31:04,762 - __main__ - INFO - [SERVE] Serving: D:\distributed-face-recognition\distributed-face-recognition\static\results\1760556877840_quynhanh.jpg (214520 bytes)
+2025-10-20 17:31:04,763 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:31:04] "[36mGET /results/1760556877840_quynhanh.jpg HTTP/1.1[0m" 304 -
+2025-10-20 17:31:04,869 - __main__ - INFO - [SERVE] Serving: D:\distributed-face-recognition\distributed-face-recognition\static\results\1760556442243_17_78.jpg (89120 bytes)
+2025-10-20 17:31:04,870 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:31:04] "[36mGET /results/1760556442243_17_78.jpg HTTP/1.1[0m" 304 -
+2025-10-20 17:31:04,873 - __main__ - INFO - [SERVE] Serving: D:\distributed-face-recognition\distributed-face-recognition\static\results\1760556442243_17_69.jpg (91758 bytes)
+2025-10-20 17:31:04,874 - __main__ - INFO - [SERVE] Serving: D:\distributed-face-recognition\distributed-face-recognition\static\results\1760556442243_15.jpg (166809 bytes)
+2025-10-20 17:31:04,874 - __main__ - INFO - [SERVE] Serving: D:\distributed-face-recognition\distributed-face-recognition\static\results\1760556442241_14.jpg (165887 bytes)
+2025-10-20 17:31:04,874 - __main__ - INFO - [SERVE] Serving: D:\distributed-face-recognition\distributed-face-recognition\static\results\1760556442072_6.jpg (166168 bytes)
+2025-10-20 17:31:04,875 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:31:04] "[36mGET /results/1760556442243_17_69.jpg HTTP/1.1[0m" 304 -
+2025-10-20 17:31:04,876 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:31:04] "[36mGET /results/1760556442243_15.jpg HTTP/1.1[0m" 304 -
+2025-10-20 17:31:04,876 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:31:04] "[36mGET /results/1760556442241_14.jpg HTTP/1.1[0m" 304 -
+2025-10-20 17:31:04,876 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:31:04] "[36mGET /results/1760556442072_6.jpg HTTP/1.1[0m" 304 -
+2025-10-20 17:31:05,066 - __main__ - INFO - [SERVE] Serving: D:\distributed-face-recognition\distributed-face-recognition\static\results\1760556017431_17_69.jpg (91758 bytes)
+2025-10-20 17:31:05,067 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:31:05] "[36mGET /results/1760556017431_17_69.jpg HTTP/1.1[0m" 304 -
+2025-10-20 17:31:05,175 - __main__ - INFO - [SERVE] Serving: D:\distributed-face-recognition\distributed-face-recognition\static\results\1760555882628_15_18.jpg (72287 bytes)
+2025-10-20 17:31:05,176 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:31:05] "[36mGET /results/1760555882628_15_18.jpg HTTP/1.1[0m" 304 -
+2025-10-20 17:31:05,181 - __main__ - INFO - [SERVE] Serving: D:\distributed-face-recognition\distributed-face-recognition\static\results\1760555766969_snapedit_1696262822213.png (260178 bytes)
+2025-10-20 17:31:05,182 - __main__ - INFO - [SERVE] Serving: D:\distributed-face-recognition\distributed-face-recognition\static\results\1760555724007_6.jpg (166168 bytes)
+2025-10-20 17:31:05,182 - __main__ - INFO - [SERVE] Serving: D:\distributed-face-recognition\distributed-face-recognition\static\results\1760555686092_15.jpg (166809 bytes)
+2025-10-20 17:31:05,184 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:31:05] "[36mGET /results/1760555766969_snapedit_1696262822213.png HTTP/1.1[0m" 304 -
+2025-10-20 17:31:05,184 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:31:05] "[36mGET /results/1760555724007_6.jpg HTTP/1.1[0m" 304 -
+2025-10-20 17:31:05,185 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:31:05] "[36mGET /results/1760555686092_15.jpg HTTP/1.1[0m" 304 -
+2025-10-20 17:31:08,272 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:31:08] "GET / HTTP/1.1" 200 -
+2025-10-20 17:31:10,364 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:31:10] "GET /api/worker-info HTTP/1.1" 200 -
+2025-10-20 17:31:20,031 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:31:20] "GET /dashboard HTTP/1.1" 200 -
+2025-10-20 17:31:20,318 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:31:20] "GET /api/worker-info HTTP/1.1" 200 -
+2025-10-20 17:31:27,049 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:31:27] "GET /api/worker-info HTTP/1.1" 200 -
+2025-10-20 17:31:37,003 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:31:37] "GET /api/worker-info HTTP/1.1" 200 -
+2025-10-20 17:31:47,457 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:31:47] "GET /api/worker-info HTTP/1.1" 200 -
+2025-10-20 17:31:57,912 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:31:57] "GET /api/worker-info HTTP/1.1" 200 -
+2025-10-20 17:32:07,357 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:32:07] "GET /api/worker-info HTTP/1.1" 200 -
+2025-10-20 17:32:17,818 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:32:17] "GET /api/worker-info HTTP/1.1" 200 -
+2025-10-20 17:32:27,139 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:32:27] "GET /api/worker-info HTTP/1.1" 200 -
+2025-10-20 17:32:37,612 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:32:37] "GET /api/worker-info HTTP/1.1" 200 -
+2025-10-20 17:33:00,635 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:33:00] "GET /api/worker-info HTTP/1.1" 200 -
+2025-10-20 17:34:00,748 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:34:00] "GET /api/worker-info HTTP/1.1" 200 -
+2025-10-20 17:34:51,814 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:34:51] "GET /api/worker-info HTTP/1.1" 200 -
+2025-10-20 17:34:57,744 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:34:57] "GET /api/worker-info HTTP/1.1" 200 -
+2025-10-20 17:35:07,697 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:35:07] "GET /api/worker-info HTTP/1.1" 200 -
+2025-10-20 17:35:13,717 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:35:13] "GET / HTTP/1.1" 200 -
+2025-10-20 17:35:16,544 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:35:16] "GET /api/worker-info HTTP/1.1" 200 -
+2025-10-20 17:35:26,493 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:35:26] "GET /api/worker-info HTTP/1.1" 200 -
+2025-10-20 17:35:29,418 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:35:29] "GET / HTTP/1.1" 200 -
+2025-10-20 17:35:31,463 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:35:31] "GET /api/worker-info HTTP/1.1" 200 -
+2025-10-20 17:35:42,174 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:35:42] "GET /api/worker-info HTTP/1.1" 200 -
+2025-10-20 17:35:47,354 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:35:47] "GET / HTTP/1.1" 200 -
+2025-10-20 17:35:49,514 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:35:49] "GET /api/worker-info HTTP/1.1" 200 -
+2025-10-20 17:35:56,567 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:35:56] "GET / HTTP/1.1" 200 -
+2025-10-20 17:35:58,880 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:35:58] "GET /api/worker-info HTTP/1.1" 200 -
+2025-10-20 17:36:09,817 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:36:09] "GET /api/worker-info HTTP/1.1" 200 -
+2025-10-20 17:36:17,120 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:36:17] "GET / HTTP/1.1" 200 -
+2025-10-20 17:36:18,762 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:36:18] "GET /api/worker-info HTTP/1.1" 200 -
+2025-10-20 17:36:19,765 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:36:19] "GET /api/worker-info HTTP/1.1" 200 -
+2025-10-20 17:36:30,222 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:36:30] "GET /api/worker-info HTTP/1.1" 200 -
+2025-10-20 17:36:40,674 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:36:40] "GET /api/worker-info HTTP/1.1" 200 -
+2025-10-20 17:36:41,012 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:36:41] "GET / HTTP/1.1" 200 -
+2025-10-20 17:36:43,789 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:36:43] "GET /api/worker-info HTTP/1.1" 200 -
+2025-10-20 17:36:53,737 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:36:53] "GET /api/worker-info HTTP/1.1" 200 -
+2025-10-20 17:37:03,687 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:37:03] "GET /api/worker-info HTTP/1.1" 200 -
+2025-10-20 17:37:07,121 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:37:07] "GET / HTTP/1.1" 200 -
+2025-10-20 17:37:09,413 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:37:09] "GET /api/worker-info HTTP/1.1" 200 -
+2025-10-20 17:37:19,368 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:37:19] "GET /api/worker-info HTTP/1.1" 200 -
+2025-10-20 17:37:30,828 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:37:30] "GET /api/worker-info HTTP/1.1" 200 -
+2025-10-20 17:37:38,091 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:37:38] "GET / HTTP/1.1" 200 -
+2025-10-20 17:37:39,166 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:37:39] "GET /api/worker-info HTTP/1.1" 200 -
+2025-10-20 17:37:40,778 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:37:40] "GET /api/worker-info HTTP/1.1" 200 -
+2025-10-20 17:37:50,145 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:37:50] "GET /api/worker-info HTTP/1.1" 200 -
+2025-10-20 17:38:00,673 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:38:00] "GET /api/worker-info HTTP/1.1" 200 -
+2025-10-20 17:38:03,729 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:38:03] "GET /dashboard HTTP/1.1" 200 -
+2025-10-20 17:38:30,426 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:38:30] "GET /api/worker-info HTTP/1.1" 200 -
+2025-10-20 17:38:30,861 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:38:30] "GET / HTTP/1.1" 200 -
+2025-10-20 17:38:33,543 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:38:33] "GET /api/worker-info HTTP/1.1" 200 -
+2025-10-20 17:38:43,361 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:38:43] "GET /dashboard HTTP/1.1" 200 -
+2025-10-20 17:38:43,497 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:38:43] "GET /api/worker-info HTTP/1.1" 200 -
+2025-10-20 17:38:48,629 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:38:48] "GET /api/worker-info HTTP/1.1" 200 -
+2025-10-20 17:38:51,216 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:38:51] "GET /dashboard HTTP/1.1" 200 -
+2025-10-20 17:39:13,349 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:39:13] "GET /api/worker-info HTTP/1.1" 200 -
+2025-10-20 17:39:22,698 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:39:22] "GET /api/worker-info HTTP/1.1" 200 -
+2025-10-20 17:39:33,438 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:39:33] "GET /api/worker-info HTTP/1.1" 200 -
+2025-10-20 17:39:42,601 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:39:42] "GET /api/worker-info HTTP/1.1" 200 -
+2025-10-20 17:39:53,055 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:39:53] "GET /api/worker-info HTTP/1.1" 200 -
+2025-10-20 17:40:02,398 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 17:40:02] "GET /api/worker-info HTTP/1.1" 200 -
+2025-10-21 23:08:16,694 - tasks - INFO - [FOLDER] Created/verified: D:\distributed-face-recognition\distributed-face-recognition\static\results
+2025-10-21 23:08:16,694 - tasks - INFO - [FOLDER] Created/verified: D:\distributed-face-recognition\distributed-face-recognition\static\uploads
+2025-10-21 23:08:16,694 - tasks - INFO - [FOLDER] Created/verified: D:\distributed-face-recognition\distributed-face-recognition\static\known_faces
+2025-10-21 23:08:16,695 - tasks - INFO - [FOLDER] Created/verified: D:\distributed-face-recognition\distributed-face-recognition\database
+2025-10-21 23:08:16,698 - tasks - INFO - [DATABASE] Initialized at D:\distributed-face-recognition\distributed-face-recognition\database\results.db
+2025-10-21 23:08:16,737 - tasks - ERROR - [ERROR] Lỗi khi load quocmanh.jpg: Unsupported image type, must be 8bit gray or RGB image.
+2025-10-21 23:08:16,746 - tasks - ERROR - [ERROR] Lỗi khi load quynhanh.jpg: Unsupported image type, must be 8bit gray or RGB image.
+2025-10-21 23:08:16,746 - tasks - INFO - [STATS] Đã load 0 khuôn mặt đã biết
+2025-10-21 23:08:29,612 - tasks - INFO - [FOLDER] Created/verified: D:\distributed-face-recognition\distributed-face-recognition\static\results
+2025-10-21 23:08:29,612 - tasks - INFO - [FOLDER] Created/verified: D:\distributed-face-recognition\distributed-face-recognition\static\uploads
+2025-10-21 23:08:29,613 - tasks - INFO - [FOLDER] Created/verified: D:\distributed-face-recognition\distributed-face-recognition\static\known_faces
+2025-10-21 23:08:29,613 - tasks - INFO - [FOLDER] Created/verified: D:\distributed-face-recognition\distributed-face-recognition\database
+2025-10-21 23:08:29,613 - tasks - INFO - [DATABASE] Initialized at D:\distributed-face-recognition\distributed-face-recognition\database\results.db
+2025-10-21 23:08:29,634 - tasks - ERROR - [ERROR] Lỗi khi load quocmanh.jpg: Unsupported image type, must be 8bit gray or RGB image.
+2025-10-21 23:08:29,644 - tasks - ERROR - [ERROR] Lỗi khi load quynhanh.jpg: Unsupported image type, must be 8bit gray or RGB image.
+2025-10-21 23:08:29,644 - tasks - INFO - [STATS] Đã load 0 khuôn mặt đã biết

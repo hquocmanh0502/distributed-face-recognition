@@ -204,6 +204,7 @@
             color: #333;
             margin-bottom: 10px;
             font-size: 1.1rem;
+            word-break: break-all;
         }
 
         .result-meta {
@@ -431,7 +432,11 @@
                         <span><i class="fas fa-file-image"></i> {{ "%.1f"|format(result.size/1024) }} KB</span>
                         <span><i class="fas fa-clock"></i> {{ result.modified|timestamp_to_datetime }}</span>
                     </div>
-                    <div class="result-actions">
+                    <div class="result-meta" style="margin-top: 10px;">
+                        <span><i class="fas fa-users"></i> <strong>{{ result.faces_detected }}</strong> faces</span>
+                        <span><i class="fas fa-server"></i> {{ result.worker_name or 'N/A' }}</span>
+                    </div>
+                    <div class="result-actions" style="margin-top: 15px;">
                         <a href="/results/{{ result.filename }}" download class="action-btn download-btn">
                             <i class="fas fa-download"></i> Tải
                         </a>

@@ -152,7 +152,23 @@
             margin-bottom: 15px;
             display: flex;
             align-items: center;
+            justify-content: space-between;
             gap: 10px;
+        }
+
+        .clear-files-btn {
+            font-size: 0.85rem;
+            color: #dc3545;
+            cursor: pointer;
+            font-weight: 600;
+            background: rgba(220, 53, 69, 0.1);
+            padding: 5px 10px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+        .clear-files-btn:hover {
+            background: rgba(220, 53, 69, 0.2);
+            transform: scale(1.05);
         }
 
         .file-item {
@@ -444,8 +460,13 @@
                 <!-- File Preview -->
                 <div class="file-preview">
                     <h4>
-                        <i class="fas fa-list"></i> 
-                        Files đã chọn (<span id="file-count">0</span>)
+                        <span>
+                            <i class="fas fa-list"></i> 
+                            Files đã chọn (<span id="file-count">0</span>)
+                        </span>
+                        <span class="clear-files-btn" onclick="clearFiles()" style="display: none;" id="clear-btn-container">
+                            <i class="fas fa-trash"></i> Xóa tất cả
+                        </span>
                     </h4>
                     <div id="file-list"></div>
                 </div>
@@ -575,6 +596,14 @@
 
         function displayFiles() {
             fileList.innerHTML = '';
+            const clearBtnContainer = document.getElementById('clear-btn-container');
+            
+            if (selectedFiles.length > 0) {
+                clearBtnContainer.style.display = 'inline';
+            } else {
+                clearBtnContainer.style.display = 'none';
+            }
+
             selectedFiles.forEach((file, index) => {
                 const fileItem = document.createElement('div');
                 fileItem.className = 'file-item';

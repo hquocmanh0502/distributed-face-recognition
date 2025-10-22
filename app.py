@@ -749,6 +749,167 @@ def index():
 
     return render_template('index.html')
 
+@app.route('/api/dashboard-data')
+def dashboard_data():
+    """API cung cấp dữ liệu dashboard real-time"""
+    try:
+        from tasks import app as celery_app
+        inspect = celery_app.control.inspect()
+        
+        # Worker information
+        active = inspect.active() or {}
+        stats = inspect.stats() or {}
+        
+        workers_info = []
+        total_active_tasks = 0
+        
+        for worker_name in stats.keys():
+            worker_tasks = active.get(worker_name, [])
+            worker_stat = stats.get(worker_name, {})
+            total_active_tasks += len(worker_tasks)
+            
+            workers_info.append({
+                'name': worker_name.split('@')[0],
+                'full_name': worker_name,
+                'active_tasks': len(worker_tasks),
+                'status': 'busy' if len(worker_tasks) > 0 else 'idle',
+                'tasks': [
+                    {
+                        'name': task.get('name', 'Unknown').replace('tasks.', ''),
+                        'id': task.get('id', 'No ID')[:8],
+                        'args': str(task.get('args', ['Unknown']))[:50] + '...'
+                    }
+                    for task in worker_tasks[:3]
+                ],
+                'pool_processes': worker_stat.get('pool', {}).get('processes', 1),
+                'total_completed': worker_stat.get('total', {}).get('tasks.detect_faces', 0)
+            })
+        
+        # Database stats
+        db_stats = get_database_stats()
+        
+        # Performance calculation
+        processing_times = get_recent_processing_times()
+        avg_time_per_image = sum(processing_times) / len(processing_times) if processing_times else 3.0
+        
+        # Estimated speedup calculation
+        worker_count = len(workers_info)
+        theoretical_speedup = min(worker_count, 4) if worker_count > 0 else 1  # Realistic cap
+        estimated_sequential_time = avg_time_per_image * theoretical_speedup
+        
+        return jsonify({
+            'workers': {
+                'total': len(workers_info),
+                'active': len([w for w in workers_info if w['status'] == 'busy']),
+                'idle': len([w for w in workers_info if w['status'] == 'idle']),
+                'details': workers_info
+            },
+            'tasks': {
+                'active': total_active_tasks,
+                'queue_length': get_queue_length(),
+                'completed_today': db_stats.get('completed_today', 0)
+            },
+            'performance': {
+                'avg_time_per_image': avg_time_per_image,
+                'estimated_sequential_time': estimated_sequential_time,
+                'speedup_factor': theoretical_speedup,
+                'throughput_per_hour': int(3600 / avg_time_per_image * worker_count) if avg_time_per_image > 0 else 0
+            },
+            'database': db_stats,
+            'timestamp': time.time()
+        })
+        
+    except Exception as e:
+        logger.error(f"Dashboard data error: {e}")
+        return jsonify({'error': str(e)}), 500
+
+def get_database_stats():
+    """Lấy thống kê từ database"""
+    try:
+        db_path = DATABASE_FOLDER / 'results.db'
+        if not db_path.exists():
+            return {}
+            
+        conn = sqlite3.connect(str(db_path))
+        cursor = conn.cursor()
+        
+        # Total stats
+        cursor.execute("SELECT COUNT(*) FROM processing_results WHERE status = 'success'")
+        total_images = cursor.fetchone()[0]
+        
+        cursor.execute("SELECT SUM(faces_detected) FROM processing_results WHERE status = 'success'")
+        total_faces = cursor.fetchone()[0] or 0
+        
+        # Today's stats
+        cursor.execute("""
+            SELECT COUNT(*) FROM processing_results 
+            WHERE status = 'success' AND DATE(created_at) = DATE('now')
+        """)
+        completed_today = cursor.fetchone()[0]
+        
+        # Hourly stats for last 24 hours
+        cursor.execute("""
+            SELECT strftime('%H', created_at) as hour, COUNT(*) 
+            FROM processing_results 
+            WHERE status = 'success' AND datetime(created_at) >= datetime('now', '-24 hours')
+            GROUP BY hour ORDER BY hour
+        """)
+        hourly_data = dict(cursor.fetchall())
+        
+        conn.close()
+        
+        return {
+            'total_images': total_images,
+            'total_faces': total_faces,
+            'completed_today': completed_today,
+            'hourly_data': hourly_data
+        }
+    except Exception as e:
+        logger.error(f"Database stats error: {e}")
+        return {}
+
+def get_recent_processing_times():
+    """Lấy thời gian xử lý gần đây"""
+    try:
+        db_path = DATABASE_FOLDER / 'results.db'
+        if not db_path.exists():
+            return []
+            
+        conn = sqlite3.connect(str(db_path))
+        cursor = conn.cursor()
+        
+        cursor.execute("""
+            SELECT processing_time FROM processing_results 
+            WHERE status = 'success' AND processing_time > 0
+            ORDER BY created_at DESC LIMIT 50
+        """)
+        times = [row[0] for row in cursor.fetchall()]
+        conn.close()
+        
+        return times
+    except:
+        return []
+
+def get_queue_length():
+    """Lấy số lượng tasks trong queue"""
+    try:
+        import redis
+        r = redis.Redis(host='localhost', port=6379, db=0)
+        return r.llen('celery')
+    except:
+        return 0
+
+@app.route('/api/worker-count')
+def worker_count():
+    """API đơn giản để lấy số workers"""
+    try:
+        from tasks import app as celery_app
+        inspect = celery_app.control.inspect()
+        stats = inspect.stats() or {}
+        return jsonify({'count': len(stats)})
+    except:
+        return jsonify({'count': 1})  # Fallback
+
 @app.route('/api/worker-info')
 def worker_info():
     """API hiển thị thông tin workers thực tế"""

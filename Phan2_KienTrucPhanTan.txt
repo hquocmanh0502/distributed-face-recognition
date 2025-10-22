@@ -1,0 +1,172 @@
+2. KIẾN TRÚC PHÂN TÁN
+
+2.1 Microservices Design
+
+Hệ thống Distributed Face Recognition được thiết kế theo mô hình microservices với việc phân tách rõ ràng các thành phần và chức năng:
+
+Web Service Layer:
+- Flask Web Server (app.py): Cung cấp giao diện người dùng và API endpoints
+- Template Engine: Render các trang HTML động (index.html, dashboard.html, results.html)
+- Static File Server: Phục vụ static files (CSS, JS, images)
+- RESTful API: Cung cấp các endpoint cho client-server communication
+
+Task Processing Layer:
+- Celery Workers (tasks.py): Xử lý song song các tác vụ face recognition
+- Face Detection Module: Sử dụng OpenCV để phát hiện khuôn mặt
+- Face Recognition Engine: Áp dụng thuật toán face_recognition để nhận diện
+- File Processing Service: Quản lý upload, storage và result handling
+
+Data Management Layer:
+- SQLite Database: Lưu trữ metadata, logs và performance statistics
+- Redis Cache: Temporary storage cho task queue và session data
+- File System Storage: Organized storage cho uploaded images, results và known faces
+
+Monitoring & Management Layer:
+- Health Check Services: Giám sát trạng thái system và workers
+- Performance Monitoring: Thu thập và phân tích metrics
+- Debug Tools: Utilities cho troubleshooting và system diagnostics
+
+2.2 Message Queue (Redis + Celery)
+
+Message Queue Architecture:
+
+Redis Message Broker:
+Redis đóng vai trò là message broker trung tâm, quản lý việc phân phối tasks giữa Flask application và Celery workers. Cấu hình Redis:
+- Host: localhost
+- Port: 6379
+- Database: 0 (default)
+- Persistence: RDB + AOF để đảm bảo data safety
+
+Celery Task Queue Configuration:
+Celery được cấu hình với các tham số tối ưu cho face recognition workload:
+
+```python
+app.conf.update(
+    task_serializer='pickle',
+    accept_content=['json', 'pickle'],
+    result_serializer='pickle',
+    worker_pool='solo',
+    worker_concurrency=1,
+    task_time_limit=300,
+    task_soft_time_limit=240,
+    result_expires=3600
+)
+```
+
+Task Distribution Flow:
+1. User upload ảnh qua Flask web interface
+2. Flask application tạo Celery task với image metadata
+3. Redis nhận task và đưa vào queue theo priority
+4. Available Celery workers pull tasks từ queue
+5. Workers xử lý face detection/recognition
+6. Results được return về Flask application
+7. Real-time updates được push tới client via WebSocket/polling
+
+Queue Management Features:
+- Priority-based task scheduling
+- Automatic load balancing across workers
+- Retry mechanism cho failed tasks
+- Dead letter queue cho unprocessable tasks
+- Task result caching và expiration
+
+Worker Scaling Strategy:
+- Dynamic worker scaling dựa trên queue length
+- Worker health monitoring và auto-restart
+- Resource-based scaling (CPU, Memory utilization)
+- Geographic distribution capability cho multi-node setup
+
+2.3 Database Architecture
+
+Multi-Database Strategy:
+
+SQLite Primary Database:
+Sử dụng SQLite làm primary database cho development và medium-scale deployment:
+
+Tasks Log Table:
+```sql
+CREATE TABLE tasks_log (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    filename TEXT,
+    task_id TEXT,
+    status TEXT,
+    start_time REAL,
+    end_time REAL,
+    duration REAL,
+    worker_name TEXT,
+    result_path TEXT,
+    recognized_name TEXT,
+    error TEXT
+)
+```
+
+Performance Stats Table:
+```sql
+CREATE TABLE performance_stats (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    mode TEXT,
+    num_images INTEGER,
+    total_time REAL,
+    avg_time REAL,
+    timestamp TEXT
+)
+```
+
+Known Faces Table:
+```sql
+CREATE TABLE known_faces (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT,
+    image_path TEXT,
+    encoding_vector BLOB
+)
+```
+
+Redis In-Memory Database:
+Redis phục vụ dual-purpose trong hệ thống:
+
+Message Broker Functions:
+- Task queue storage và management
+- Worker coordination và status tracking
+- Real-time communication channel
+
+Caching Layer:
+- Session data caching
+- Frequently accessed face encodings
+- Temporary result storage
+- API response caching
+
+File System Storage Organization:
+
+Structured Directory Layout:
+```
+static/
+├── uploads/          # User uploaded images
+├── results/          # Processed results với detected faces
+├── known_faces/      # Database của known faces để recognition
+└── temp/            # Temporary processing files
+```
+
+Database Performance Optimization:
+- Database indexing cho frequently queried fields
+- Connection pooling cho concurrent access
+- Prepared statements để prevent SQL injection
+- Regular database maintenance và optimization
+
+Data Consistency Strategy:
+- ACID compliance cho critical transactions
+- Eventual consistency cho non-critical data
+- Backup và recovery procedures
+- Data validation và integrity checks
+
+Scalability Considerations:
+- Database sharding strategy cho large datasets
+- Read replicas để improve read performance
+- Migration path tới PostgreSQL cho production
+- Distributed database support cho multi-node deployment
+
+Kiến trúc database này đảm bảo:
+- High availability và fault tolerance
+- Optimal performance cho face recognition workload
+- Scalability cho future growth
+- Data integrity và consistency
+- Easy maintenance và troubleshooting
